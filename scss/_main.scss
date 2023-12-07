@@ -1,0 +1,93 @@
+.mainIndex {
+    @include flexAllMedio;
+
+    .mainIndexSub {
+        @include flexAllMedio;
+        gap: 20px;
+
+        .mainIndexSubTitulo {
+            text-align: center;
+            color: black;
+            font-size: 1.8rem;
+        }
+
+        .mainIndexSubBoton {
+            width: 170px;
+            height: 130px;
+
+            @include flexAllMedio;
+            flex-direction: column;
+
+            background-color: white;
+
+            border: 1px solid rgba(10, 10, 10, 0.796);
+            border-radius: 15px;
+            transition: 0.4s;
+
+            .mainIndexSubBotonTexto {
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+
+                background-color: rgb(252, 252, 168);
+                color: rgb(239, 95, 11);
+                border: 1px solid rgb(239, 95, 11);
+            }
+        }
+    }
+}
+
+/* Dark Mode */
+.mainIndexModoOscuro {
+    .mainIndexSub {
+        .mainIndexSubTitulo {
+            color: white;
+        }
+
+        .mainIndexSubBoton {
+            color: white;
+            background-color: black;
+            border: 1px solid white;
+
+            &:hover {
+                background-color: black;
+                color: white;
+                border: 1px solid white;
+            }
+        }
+    }
+}
+
+/* -------------------------------------------- 
+                    MENU
+ -------------------------------------------- */
+
+/* NAV BAR */
+.navHome {
+    background: linear-gradient(to right, rgb(252, 252, 197), white);
+    border: 1px solid rgb(136, 136, 136);
+
+    .navHomeSub {
+        .navHomeSub2 {
+            .navHomeSub2Listado {
+                border: 1px solid red;
+                width: 70%;
+                height: 150px;
+
+               
+
+                .navHomeSub2Lista {
+                    
+
+                    .navHomeSub2ListaNombre {}
+                }
+            }
+        }
+    }
+}
+
+/* -------------- */

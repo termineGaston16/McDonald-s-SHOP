@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Baskervville", serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* IMPORTS  */
+.bodyIndex {
+  font-family: "Baskervville", serif;
+  background: linear-gradient(to right, white, rgb(136, 213, 211));
+}
+
+/* Dark Mode */
+.bodyIndexModoOscuro {
+  background: linear-gradient(to right, rgb(0, 0, 0), rgb(4, 2, 37));
+}
+
+.headerIndex {
+  background: linear-gradient(to right, rgb(247, 220, 41), rgb(255, 153, 19));
+  border: 1px solid white;
+}
+.headerIndex .headerIndexSub .headerIndexLogoPrincipalLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.headerIndex .headerIndexSub .headerIndexLogoPrincipalLink .headerIndexLogoPrincipalLinkLogo {
+  width: 15%;
+  margin-left: 5%;
+}
+.headerIndex .headerIndexSub .headerIndexLogoPrincipalLink .headerIndexLogoPrincipalNombre {
+  color: rgb(51, 51, 51);
+  font-size: 1.8rem;
+}
+.headerIndex .headerIndexSub .headerIndexLista {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.headerIndex .headerIndexSub .headerIndexLista .headerIndexListaLi .headerIndexListaLiLink {
+  color: rgb(51, 51, 51);
+  border: 1px solid rgb(51, 51, 51);
+  transition: 0.3s;
+}
+.headerIndex .headerIndexSub .headerIndexLista .headerIndexListaLi .headerIndexListaLiLink:hover {
+  color: rgb(239, 95, 11);
+  border: 1px solid rgb(239, 95, 11);
+  background-color: rgb(252, 252, 168);
+}
+
+/* Dark Mode */
+.headerIndexModoOscuro {
+  background: linear-gradient(to right, rgb(15, 15, 15), black);
+}
+.headerIndexModoOscuro .headerIndexSub .headerIndexLogoPrincipalLink .headerIndexLogoPrincipalNombre {
+  color: white;
+}
+.headerIndexModoOscuro .headerIndexSub .headerIndexLista .headerIndexListaLi .headerIndexListaLiLink {
+  color: white;
+}
+.headerIndexModoOscuro .headerIndexSub .headerIndexLista .headerIndexListaLi .headerIndexListaLiLink:hover {
+  color: black;
+  border: 1px solid white;
+  background-color: white;
+}
+
+.mainIndex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainIndex .mainIndexSub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.mainIndex .mainIndexSub .mainIndexSubTitulo {
+  text-align: center;
+  color: black;
+  font-size: 1.8rem;
+}
+.mainIndex .mainIndexSub .mainIndexSubBoton {
+  width: 170px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid rgba(10, 10, 10, 0.796);
+  border-radius: 15px;
+  transition: 0.4s;
+}
+.mainIndex .mainIndexSub .mainIndexSubBoton .mainIndexSubBotonTexto {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.mainIndex .mainIndexSub .mainIndexSubBoton:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  background-color: rgb(252, 252, 168);
+  color: rgb(239, 95, 11);
+  border: 1px solid rgb(239, 95, 11);
+}
+
+/* Dark Mode */
+.mainIndexModoOscuro .mainIndexSub .mainIndexSubTitulo {
+  color: white;
+}
+.mainIndexModoOscuro .mainIndexSub .mainIndexSubBoton {
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+}
+.mainIndexModoOscuro .mainIndexSub .mainIndexSubBoton:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+/* -------------------------------------------- 
+                    MENU
+ -------------------------------------------- */
+/* NAV BAR */
+.navHome {
+  background: linear-gradient(to right, rgb(252, 252, 197), white);
+  border: 1px solid rgb(136, 136, 136);
+}
+.navHome .navHomeSub .navHomeSub2 .navHomeSub2Listado {
+  border: 1px solid red;
+  width: 70%;
+  height: 150px;
+}
+/* -------------- */
+.botonesIndex {
+  width: 100vw;
+  position: fixed;
+  bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+  padding: 0% 3%;
+  /* MODO OSCURO */
+  /* Dark Mode */
+}
+.botonesIndex .botonesIndexModoOscuro {
+  background: linear-gradient(to right, rgb(8, 8, 8), rgb(17, 17, 17));
+  color: white;
+  border: 1px solid black;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  padding: 3px 15px;
+  transition: 0.3s;
+}
+.botonesIndex .botonesIndexModoOscuro:active {
+  transform: scale(0.8);
+}
+.botonesIndex .botonesIndexModoOscuro .botonesIndexLogo {
+  color: white;
+  border: 1px solid white;
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+}
+.botonesIndex .botonesIndexModoOscuroActivado {
+  background: none;
+  color: rgb(57, 43, 253);
+  border: 1px solid rgb(57, 43, 253);
+}
+.botonesIndex .botonesIndexModoOscuroActivado .botonesIndexLogo {
+  color: rgb(57, 43, 253);
+  border: 1px solid rgb(57, 43, 253);
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+}
+
+/*# sourceMappingURL=estilo.css.map */

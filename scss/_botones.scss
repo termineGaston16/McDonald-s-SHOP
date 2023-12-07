@@ -1,0 +1,55 @@
+.botonesIndex{
+    width: 100vw;
+
+    position: fixed;
+    bottom: 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+
+    padding: 0% 3%;
+
+
+    /* MODO OSCURO */
+    .botonesIndexModoOscuro{
+        background: linear-gradient(to right, rgb(8, 8, 8), rgb(17, 17, 17));
+        color: white;
+        border: 1px solid black;
+        font-size: 1.1rem;
+        border-radius: 12px;
+
+        padding: 3px 15px;
+        transition: 0.3s;
+
+        &:active{
+            transform: scale(0.8);
+        }
+
+        .botonesIndexLogo{
+            color: white;
+            border: 1px solid white;
+            border-radius: 20px;
+
+            margin: 0px 6px;
+            padding: 5px;
+        }
+    }
+
+    /* Dark Mode */
+    .botonesIndexModoOscuroActivado{
+        background: none;
+        color: rgb(57, 43, 253);
+        border: 1px solid rgb(57, 43, 253);
+
+        .botonesIndexLogo{
+            color: rgb(57, 43, 253);
+            border: 1px solid rgb(57, 43, 253);
+            border-radius: 20px;
+
+            margin: 0px 6px;
+            padding: 5px;
+        }
+    }
+}
