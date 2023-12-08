@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -135,11 +136,165 @@ html {
   border: 1px solid rgb(136, 136, 136);
 }
 .navHome .navHomeSub .navHomeSub2 .navHomeSub2Listado {
-  border: 1px solid red;
   width: 70%;
   height: 150px;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow-y: hidden;
+  border: 3px solid rgb(172, 172, 172);
+  border-radius: 15px;
 }
+.navHome .navHomeSub .navHomeSub2 .navHomeSub2Listado .navHomeSub2Lista {
+  width: 30%;
+  height: 150px;
+  border-left: 2px solid rgb(162, 162, 162);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.navHome .navHomeSub .navHomeSub2 .navHomeSub2Listado .navHomeSub2Lista .navHomeSub2ListaImagen {
+  width: 30%;
+  border: 2px solid rgb(172, 172, 172);
+  border-radius: 15px;
+}
+.navHome .navHomeSub .navHomeSub2 .contenedorBuscador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.navHome .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorInput .contenedorBuscadorInput2 {
+  border: 1px solid rgb(172, 172, 172);
+  background-color: rgb(252, 252, 168);
+}
+.navHome .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorInput .contenedorBuscadorInput2::placeholder {
+  color: rgb(239, 95, 11);
+}
+.navHome .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorInput .contenedorBuscadorInput2::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.navHome .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorBoton {
+  background-color: rgb(252, 252, 168);
+  border: 1px solid rgb(172, 172, 172);
+  color: rgb(239, 95, 11);
+  padding: 3%;
+  border-radius: 5px;
+}
+
+/* Dark Mode */
+.navHomeModoOscuro {
+  background: linear-gradient(to right, rgb(22, 22, 22), rgb(4, 0, 28));
+  border: 1px solid white;
+}
+.navHomeModoOscuro .navHomeSub .navHomeSub2 .navHomeSub2Listado {
+  border: 3px solid rgb(0, 68, 169);
+}
+.navHomeModoOscuro .navHomeSub .navHomeSub2 .navHomeSub2Listado .navHomeSub2Lista {
+  border-left: 2px solid rgb(0, 68, 169);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.navHomeModoOscuro .navHomeSub .navHomeSub2 .navHomeSub2Listado .navHomeSub2Lista .navHomeSub2ListaImagen {
+  border: 2px solid rgb(0, 68, 169);
+}
+.navHomeModoOscuro .navHomeSub .navHomeSub2 .contenedorBuscador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navHomeModoOscuro .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorInput .contenedorBuscadorInput2 {
+  border: 1px solid white;
+  background-color: rgb(15, 15, 15);
+}
+.navHomeModoOscuro .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorInput .contenedorBuscadorInput2::placeholder {
+  color: white;
+}
+.navHomeModoOscuro .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorBoton {
+  background-color: rgb(15, 15, 15);
+  border: 1px solid white;
+  color: white;
+}
+
 /* -------------- */
+/* PRODUCTOS */
+.productosContenedor {
+  background: linear-gradient(to right, white, rgb(135, 253, 253));
+}
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 {
+  background-color: rgb(228, 251, 251);
+  padding: 5%;
+  border: 1px solid rgb(107, 107, 107);
+}
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorSub4Imagen {
+  width: 40%;
+  border: 3px solid rgb(72, 72, 72);
+  border-radius: 15px;
+}
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion .productosContenedorNombreProducto {
+  font-size: 1.5rem;
+}
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion .productosContenedorDescripcionBotones .productosContenedorDescripcionBotonesAniadirAlCarrito {
+  background-color: rgb(119, 249, 127);
+  border: 1px solid black;
+  color: black;
+  transition: 0.2s;
+}
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion .productosContenedorDescripcionBotones .productosContenedorDescripcionBotonesAniadirAlCarrito:hover {
+  background-color: rgb(0, 255, 17);
+  border: 1px solid white;
+  color: white;
+}
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion .productosContenedorDescripcionBotones .productosContenedorDescripcionBotonesAniadirAlCarrito:active {
+  scale: 0.9;
+}
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion .productosContenedorDescripcionBotones .productosContenedorDescripcionPrecio {
+  background-color: white;
+  padding: 3%;
+  border: 1px solid rgb(45, 45, 45);
+  border-radius: 15px;
+  font-size: 1.5rem;
+  color: black;
+}
+
+/* Dark Mode */
+.productosContenedorModoOscuro {
+  background: linear-gradient(to right, rgb(0, 0, 0), rgb(4, 2, 37));
+}
+.productosContenedorModoOscuro .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 {
+  background-color: rgb(14, 14, 14);
+  border: 1px solid rgb(107, 107, 107);
+}
+.productosContenedorModoOscuro .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion {
+  color: white;
+}
+.productosContenedorModoOscuro .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion .productosContenedorDescripcionBotones .productosContenedorDescripcionBotonesAniadirAlCarrito {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgb(0, 255, 17);
+  color: rgb(0, 255, 17);
+  transition: 0.2s;
+}
+.productosContenedorModoOscuro .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion .productosContenedorDescripcionBotones .productosContenedorDescripcionBotonesAniadirAlCarrito:hover {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  color: white;
+}
+.productosContenedorModoOscuro .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion .productosContenedorDescripcionBotones .productosContenedorDescripcionBotonesAniadirAlCarrito:active {
+  scale: 0.9;
+}
+.productosContenedorModoOscuro .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorDescripcion .productosContenedorDescripcionBotones .productosContenedorDescripcionPrecio {
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+}
+
 .botonesIndex {
   width: 100vw;
   position: fixed;
@@ -149,7 +304,14 @@ html {
   justify-content: start;
   flex-wrap: wrap;
   padding: 0% 3%;
+  gap: 5%;
   /* MODO OSCURO */
+  /* Dark Mode */
+  /* ----------------------------- */
+  /* AÑADIR AL CARRITO */
+  /* Dark Mode */
+  /* ----------------------------- */
+  /* CAMBIAR PRECIO */
   /* Dark Mode */
 }
 .botonesIndex .botonesIndexModoOscuro {
@@ -165,11 +327,11 @@ html {
   transform: scale(0.8);
 }
 .botonesIndex .botonesIndexModoOscuro .botonesIndexLogo {
-  color: white;
-  border: 1px solid white;
   border-radius: 20px;
   margin: 0px 6px;
   padding: 5px;
+  color: white;
+  border: 1px solid white;
 }
 .botonesIndex .botonesIndexModoOscuroActivado {
   background: none;
@@ -179,6 +341,68 @@ html {
 .botonesIndex .botonesIndexModoOscuroActivado .botonesIndexLogo {
   color: rgb(57, 43, 253);
   border: 1px solid rgb(57, 43, 253);
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+}
+.botonesIndex .botonesIndexCarrito {
+  background: linear-gradient(to right, rgb(47, 245, 255), rgb(0, 140, 233));
+  color: black;
+  border: 1px solid black;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  padding: 3px 15px;
+  transition: 0.3s;
+}
+.botonesIndex .botonesIndexCarrito:active {
+  transform: scale(0.8);
+}
+.botonesIndex .botonesIndexCarrito .botonesIndexLogo {
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+  color: black;
+  border: 1px solid black;
+}
+.botonesIndex .botonesIndexCarritoModoOscuroActivado {
+  background: rgba(0, 0, 0, 0);
+  color: rgb(43, 235, 253);
+  border: 1px solid rgb(43, 235, 253);
+}
+.botonesIndex .botonesIndexCarritoModoOscuroActivado .botonesIndexLogo {
+  color: rgb(43, 235, 253);
+  border: 1px solid rgb(43, 235, 253);
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+}
+.botonesIndex .botonesIndexCambiarPrecio {
+  background: linear-gradient(to right, rgb(47, 255, 137), rgb(0, 233, 0));
+  color: black;
+  border: 1px solid black;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  padding: 3px 15px;
+  transition: 0.3s;
+}
+.botonesIndex .botonesIndexCambiarPrecio:active {
+  transform: scale(0.8);
+}
+.botonesIndex .botonesIndexCambiarPrecio .botonesIndexLogo {
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+  color: black;
+  border: 1px solid black;
+}
+.botonesIndex .botonesIndexCambiarPrecioModoOscuroActivado {
+  background: rgba(0, 0, 0, 0);
+  color: rgb(0, 255, 98);
+  border: 1px solid rgb(0, 255, 98);
+}
+.botonesIndex .botonesIndexCambiarPrecioModoOscuroActivado .botonesIndexLogo {
+  color: rgb(0, 255, 98);
+  border: 1px solid rgb(0, 255, 98);
   border-radius: 20px;
   margin: 0px 6px;
   padding: 5px;

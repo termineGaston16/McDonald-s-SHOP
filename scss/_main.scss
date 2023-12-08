@@ -74,20 +74,227 @@
     .navHomeSub {
         .navHomeSub2 {
             .navHomeSub2Listado {
-                border: 1px solid red;
                 width: 70%;
                 height: 150px;
+                overflow: auto;
 
-               
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                overflow-y: hidden;
+
+                border: 3px solid rgb(172, 172, 172);
+                border-radius: 15px;
 
                 .navHomeSub2Lista {
-                    
+                    width: 30%;
+                    height: 150px;
+                    border-left: 2px solid rgb(162, 162, 162);
+                    cursor: pointer;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+
+
+                    .navHomeSub2ListaImagen{
+                        width: 30%;
+                        border: 2px solid rgb(172, 172, 172);
+                        border-radius: 15px;
+                    }
 
                     .navHomeSub2ListaNombre {}
+                }
+            }
+
+
+            .contenedorBuscador {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                flex-direction: row;
+
+                .contenedorBuscadorInput {
+                    .contenedorBuscadorInput2 {
+                        border: 1px solid rgb(172, 172, 172);
+                        background-color: rgb(252, 252, 168);
+
+                        &::placeholder {
+                            color: rgb(239, 95, 11);
+                        }
+
+                        &::-webkit-search-cancel-button {
+                            -webkit-appearance: none;
+                            appearance: none;
+                        }
+                    }
+                }
+
+                .contenedorBuscadorBoton {
+                    background-color: rgb(252, 252, 168);
+                    border: 1px solid rgb(172, 172, 172);
+                    color: rgb(239, 95, 11);
+                    padding: 3%;
+                    border-radius: 5px;
+                }
+            }
+
+        }
+    }
+}
+
+/* Dark Mode */
+.navHomeModoOscuro {
+    background: linear-gradient(to right, rgb(22, 22, 22), rgb(4, 0, 28));
+    border: 1px solid white;
+
+    .navHomeSub {
+        .navHomeSub2 {
+            .navHomeSub2Listado {
+                border: 3px solid rgb(0, 68, 169);
+
+                .navHomeSub2Lista {
+                    border-left: 2px solid rgb(0, 68, 169);
+                    @include flexAllMedio;
+                    color: white;
+
+                    .navHomeSub2ListaImagen{
+                        border: 2px solid rgb(0, 68, 169);
+                    }
+
+                    .navHomeSub2ListaNombre {}
+                }
+            }
+
+
+            .contenedorBuscador {
+                @include flexAllMedio;
+
+                .contenedorBuscadorInput {
+                    .contenedorBuscadorInput2 {
+                        border: 1px solid white;
+                        background-color: rgb(15, 15, 15);
+
+                        &::placeholder {
+                            color: white;
+                        }
+                    }
+                }
+
+                .contenedorBuscadorBoton {
+                    background-color: rgb(15, 15, 15);
+                    border: 1px solid white;
+                    color: white;
+                }
+            }
+
+        }
+    }
+}
+
+/* -------------- */
+
+/* PRODUCTOS */
+.productosContenedor {
+    background: linear-gradient(to right, white, rgb(135, 253, 253));
+
+    .productosContenedorSub {
+        .productosContenedorSub2 {
+            .productosContenedorSub3 {
+                .productosContenedorSub4 {
+                    background-color: rgb(228, 251, 251);
+                    padding: 5%;
+                    border: 1px solid rgb(107, 107, 107);
+
+                    .productosContenedorSub4Imagen{
+                        width: 40%;
+                        border: 3px solid rgb(72, 72, 72);
+                        border-radius: 15px;
+                    }
+                    
+                    .productosContenedorDescripcion {
+                        .productosContenedorNombreProducto {
+                            font-size: 1.5rem;
+                        }
+
+                        .productosContenedorDescripcionBotones {
+                            .productosContenedorDescripcionBotonesAniadirAlCarrito {
+                                background-color: rgb(119, 249, 127);
+                                border: 1px solid black;
+                                color: black;
+                                transition: 0.2s;
+
+                                &:hover {
+                                    background-color: rgb(0, 255, 17);
+                                    border: 1px solid white;
+                                    color: white;
+                                }
+
+                                &:active{
+                                    scale: (0.9);
+                                }
+                            }
+
+                            .productosContenedorDescripcionPrecio {
+                                background-color: white;
+                                padding: 3%;
+                                border: 1px solid rgb(45, 45, 45);
+                                border-radius: 15px;
+
+                                font-size: 1.5rem;
+                                color: black;
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-/* -------------- */
+/* Dark Mode */
+.productosContenedorModoOscuro {
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(4, 2, 37));
+
+    .productosContenedorSub {
+        .productosContenedorSub2 {
+            .productosContenedorSub3 {
+                .productosContenedorSub4 {
+                    background-color: rgb(14, 14, 14);
+                    border: 1px solid rgb(107, 107, 107);
+                    
+                    .productosContenedorDescripcion {
+                        color: white;
+                        .productosContenedorDescripcionBotones {
+                            .productosContenedorDescripcionBotonesAniadirAlCarrito {
+                                background-color: rgba(0, 0, 0, 0);
+                                border: 1px solid rgb(0, 255, 17);
+                                color: rgb(0, 255, 17);
+                                transition: 0.2s;
+
+                                &:hover {
+                                    background-color: rgba(0, 0, 0, 0);
+                                    border: 1px solid white;
+                                    color: white;
+                                }
+
+                                &:active{
+                                    scale: (0.9);
+                                }
+                            }
+
+                            .productosContenedorDescripcionPrecio {
+                                background-color: black;
+                                border: 1px solid white;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

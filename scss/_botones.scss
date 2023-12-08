@@ -1,4 +1,4 @@
-.botonesIndex{
+.botonesIndex {
     width: 100vw;
 
     position: fixed;
@@ -10,10 +10,11 @@
     flex-wrap: wrap;
 
     padding: 0% 3%;
+    gap: 5%;
 
 
     /* MODO OSCURO */
-    .botonesIndexModoOscuro{
+    .botonesIndexModoOscuro {
         background: linear-gradient(to right, rgb(8, 8, 8), rgb(17, 17, 17));
         color: white;
         border: 1px solid black;
@@ -23,13 +24,26 @@
         padding: 3px 15px;
         transition: 0.3s;
 
-        &:active{
+        &:active {
             transform: scale(0.8);
         }
 
-        .botonesIndexLogo{
+        .botonesIndexLogo {
+            @include botonesIndexLogo;
             color: white;
             border: 1px solid white;
+        }
+    }
+
+    /* Dark Mode */
+    .botonesIndexModoOscuroActivado {
+        background: none;
+        color: rgb(57, 43, 253);
+        border: 1px solid rgb(57, 43, 253);
+
+        .botonesIndexLogo {
+            color: rgb(57, 43, 253);
+            border: 1px solid rgb(57, 43, 253);
             border-radius: 20px;
 
             margin: 0px 6px;
@@ -37,15 +51,81 @@
         }
     }
 
-    /* Dark Mode */
-    .botonesIndexModoOscuroActivado{
-        background: none;
-        color: rgb(57, 43, 253);
-        border: 1px solid rgb(57, 43, 253);
 
-        .botonesIndexLogo{
-            color: rgb(57, 43, 253);
-            border: 1px solid rgb(57, 43, 253);
+    /* ----------------------------- */
+
+    /* AÑADIR AL CARRITO */
+    .botonesIndexCarrito {
+        background: linear-gradient(to right, rgb(47, 245, 255), rgb(0, 140, 233));
+        color: black;
+        border: 1px solid black;
+        font-size: 1.1rem;
+        border-radius: 12px;
+
+        padding: 3px 15px;
+        transition: 0.3s;
+
+        &:active {
+            transform: scale(0.8);
+        }
+
+        .botonesIndexLogo {
+            @include botonesIndexLogo;
+            color: black;
+            border: 1px solid black;
+        }
+    }
+
+    /* Dark Mode */
+    .botonesIndexCarritoModoOscuroActivado {
+        background: rgba(0, 0, 0, 0);
+        color: rgb(43, 235, 253);
+        border: 1px solid rgb(43, 235, 253);
+
+        .botonesIndexLogo {
+            color: rgb(43, 235, 253);
+            border: 1px solid rgb(43, 235, 253);
+            border-radius: 20px;
+
+            margin: 0px 6px;
+            padding: 5px;
+        }
+    }
+
+    /* ----------------------------- */
+
+    /* CAMBIAR PRECIO */
+    .botonesIndexCambiarPrecio {
+        background: linear-gradient(to right, rgb(47, 255, 137), rgb(0, 233, 0));
+        color: black;
+        border: 1px solid black;
+        font-size: 1.1rem;
+        border-radius: 12px;
+
+        padding: 3px 15px;
+        transition: 0.3s;
+
+        &:active {
+            transform: scale(0.8);
+        }
+
+        .botonesIndexLogo {
+            @include botonesIndexLogo;
+            color: black;
+            border: 1px solid black;
+        }
+
+    }
+
+    /* Dark Mode */
+    .botonesIndexCambiarPrecioModoOscuroActivado {
+        background: rgba(0, 0, 0, 0);
+        color: rgb(0, 255, 98);
+        border: 1px solid rgb(0, 255, 98);
+
+        .botonesIndexLogo {
+            color: rgb(0, 255, 98);
+            border: 1px solid rgb(0, 255, 98);
             border-radius: 20px;
 
             margin: 0px 6px;
