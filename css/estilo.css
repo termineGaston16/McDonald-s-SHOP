@@ -179,12 +179,21 @@ html {
   -webkit-appearance: none;
   appearance: none;
 }
+.navHome .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorInput .contenedorBuscadorInput2:focus {
+  color: black;
+}
 .navHome .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorBoton {
   background-color: rgb(252, 252, 168);
   border: 1px solid rgb(172, 172, 172);
   color: rgb(239, 95, 11);
   padding: 3%;
   border-radius: 5px;
+}
+
+.navClickeado {
+  color: rgb(0, 0, 0);
+  background-color: rgb(65, 249, 249);
+  border-radius: 10px;
 }
 
 /* Dark Mode */
@@ -217,6 +226,9 @@ html {
 .navHomeModoOscuro .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorInput .contenedorBuscadorInput2::placeholder {
   color: white;
 }
+.navHomeModoOscuro .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorInput .contenedorBuscadorInput2:focus {
+  color: white;
+}
 .navHomeModoOscuro .navHomeSub .navHomeSub2 .contenedorBuscador .contenedorBuscadorBoton {
   background-color: rgb(15, 15, 15);
   border: 1px solid white;
@@ -234,7 +246,8 @@ html {
   border: 1px solid rgb(107, 107, 107);
 }
 .productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorSub4 .productosContenedorSub4Imagen {
-  width: 40%;
+  width: 150px;
+  height: 120px;
   border: 3px solid rgb(72, 72, 72);
   border-radius: 15px;
 }

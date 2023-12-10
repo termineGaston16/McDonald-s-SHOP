@@ -67,47 +67,40 @@
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-start mb-md-0 navHomeSub2Listado">
                         <li class="navHomeSub2Lista" id="botonHamburguesas">
                             <img src="../img/hamburguesas/big-mac.png" alt="big-mac" class="navHomeSub2ListaImagen">
-                            <p class="navHomeSub2ListaNombre">Hamburguesas</p>
+                            <p class="navHomeSub2ListaNombre" id="hamburguesaNombreLista">Hamburguesas</p>
                         </li>
                         <li class="navHomeSub2Lista" id="botonHamburguesasDePollo">
                             <img src="../img/hamburguesa-de-pollo/mccripspy-chicken-deluxe-spicy.png"
                                 alt="mccripspy-chicken-deluxe-spicy" class="navHomeSub2ListaImagen">
-                            <p class="navHomeSub2ListaNombre">Hamburguesas de Pollo</p>
+                            <p class="navHomeSub2ListaNombre" id="hamburguesaPolloNombreLista">Hamburguesas de Pollo</p>
                         </li>
                         <li class="navHomeSub2Lista" id="botonPapasYComplementos">
                             <img src="../img/papas-y-complementos/papas-tasty.png" alt="papas-tasty"
                                 class="navHomeSub2ListaImagen">
-                            <p class="navHomeSub2ListaNombre">Papas y Complementos</p>
+                            <p class="navHomeSub2ListaNombre" id="papasYComNombreLista">Papas y Complementos</p>
                         </li>
                         <li class="navHomeSub2Lista" id="botonBebidas">
                             <img src="../img/bebidas/coca-colca-chica.png" alt="coca-colca-chica"
                                 class="navHomeSub2ListaImagen">
-                            <p class="navHomeSub2ListaNombre">Bebidas</p>
+                            <p class="navHomeSub2ListaNombre" id="bebidaNombreLista">Bebidas</p>
                         </li>
                         <li class="navHomeSub2Lista" id="botonPostres">
                             <img src="../img/postres/mcflurry-crocantella.png" alt="mcflurry-crocantella"
                                 class="navHomeSub2ListaImagen">
-                            <p class="navHomeSub2ListaNombre">Postres</p>
+                            <p class="navHomeSub2ListaNombre" id="postresNombreLista">Postres</p>
                         </li>
                         <li class="navHomeSub2Lista" id="botonEnsaladas">
                             <img src="../img/ensaladas/ensalada-deli-fresh-con-pollo-grille.png"
                                 alt="ensalada-deli-fresh-con-pollo-grille" class="navHomeSub2ListaImagen">
-                            <p class="navHomeSub2ListaNombre">Ensaladas</p>
+                            <p class="navHomeSub2ListaNombre" id="ensaladaNombreLista">Ensaladas</p>
                         </li>
                     </ul>
 
                     <div class="contenedorBuscador">
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 contenedorBuscadorInput" role="search">
                             <input type="search" class="form-control contenedorBuscadorInput2"
-                                placeholder="Buscar aquí..." aria-label="Search">
-                        </form>
-                        <button class="contenedorBuscadorBoton">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-search" viewBox="0 0 16 16">
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                            </svg>
-                        </button>
+                                placeholder="Buscar aquí..." aria-label="Search" id="idBuscadorNav">
+                        </form>        
                     </div>
                 </div>
             </div>
@@ -120,397 +113,43 @@
 
             <!-- Hamburguesas -->
             <div class="container productosContenedorSub d-none" id="seccionHamburguesas">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2">
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/hamburguesas/hamburguesa-con-queso.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/hamburguesas/hamburguesa-con-queso.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/hamburguesas/hamburguesa-con-queso.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2" id="contendorCargarProductoHamburgesas">
                 </div>
             </div>
 
             <!-- Hamburguesas de Pollo -->
             <div class="container productosContenedorSub d-none" id="seccionHamburguesasDePollo">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2">
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/hamburguesa-de-pollo/mccripspy-chicken-deluxe-spicy.png"
-                                alt="hamburguesa-con-queso" class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/hamburguesa-de-pollo/mccripspy-chicken-deluxe-spicy.png"
-                                alt="hamburguesa-con-queso" class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/hamburguesa-de-pollo/mccripspy-chicken-deluxe-spicy.png"
-                                alt="hamburguesa-con-queso" class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2" id="contendorCargarProductoHamburgesasDePollo">
                 </div>
             </div>
 
             <!-- Papas y Complemento -->
             <div class="container productosContenedorSub d-none" id="seccionPapasYComplementos">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2">
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/papas-y-complementos/papas-cheddar-y-bacon.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/papas-y-complementos/papas-cheddar-y-bacon.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/papas-y-complementos/papas-cheddar-y-bacon.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2" id="contendorCargarProductoPapasYComplementos">
                 </div>
             </div>
 
             <!-- Bebidas -->
             <div class="container productosContenedorSub d-none" id="seccionBebidas">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2">
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/bebidas/coca-colca-chica.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/bebidas/coca-colca-chica.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/bebidas/coca-colca-chica.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2" id="contendorCargarProductoBebidas">
                 </div>
             </div>
 
             <!-- Postres -->
             <div class="container productosContenedorSub d-none" id="seccionPostres">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2">
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/postres/mcflurry-crocantella.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/postres/mcflurry-crocantella.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/postres/mcflurry-crocantella.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2" id="contendorCargarProductoPostres">
                 </div>
             </div>
 
             <!-- Ensaladas -->
             <div class="container productosContenedorSub d-none" id="seccionEnsaladas">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2">
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/ensaladas/ensalada-deli-fresh-con-pollo-grille.png"
-                                alt="hamburguesa-con-queso" class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/ensaladas/ensalada-deli-fresh-con-pollo-grille.png"
-                                alt="hamburguesa-con-queso" class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/ensaladas/ensalada-deli-fresh-con-pollo-grille.png"
-                                alt="hamburguesa-con-queso" class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2" id="contendorCargarProductoEnsaladas">
                 </div>
             </div>
 
             <!-- Default -->
             <div class="container productosContenedorSub" id="seccionDefault">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2">
-                    <div class="col productosContenedorSub3">
-                        <div class="card shadow-sm productosContenedorSub4">
-                            <img src="../img/hamburguesas/hamburguesa-con-queso.png" alt="hamburguesa-con-queso"
-                                class="productosContenedorSub4Imagen">
-                            <div class="card-body productosContenedorDescripcion">
-                                <h5 class="productosContenedorNombreProducto">Hamburguesa</h5>
-                                <div
-                                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                                    <button type="button"
-                                        class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito">Añadir
-                                        al carrito</button>
-                                    <small class="productosContenedorDescripcionPrecio" id="precioDolar">$ 1.</small>
-                                    <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">1000
-                                        args.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2" id="contendorCargarProductoDefault">
                 </div>
             </div>
 

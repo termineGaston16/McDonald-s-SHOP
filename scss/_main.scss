@@ -98,7 +98,6 @@
                     justify-content: center;
                     flex-direction: column;
 
-
                     .navHomeSub2ListaImagen{
                         width: 30%;
                         border: 2px solid rgb(172, 172, 172);
@@ -130,6 +129,10 @@
                             -webkit-appearance: none;
                             appearance: none;
                         }
+
+                        &:focus{
+                           color: black; 
+                        }
                     }
                 }
 
@@ -146,6 +149,11 @@
     }
 }
 
+.navClickeado{
+    color: rgb(0, 0, 0);
+    background-color: rgb(65, 249, 249);
+    border-radius: 10px;
+}
 /* Dark Mode */
 .navHomeModoOscuro {
     background: linear-gradient(to right, rgb(22, 22, 22), rgb(4, 0, 28));
@@ -181,6 +189,10 @@
                         &::placeholder {
                             color: white;
                         }
+
+                        &:focus{
+                            color: white; 
+                         }
                     }
                 }
 
@@ -210,7 +222,8 @@
                     border: 1px solid rgb(107, 107, 107);
 
                     .productosContenedorSub4Imagen{
-                        width: 40%;
+                        width: 150px;
+                        height: 120px;
                         border: 3px solid rgb(72, 72, 72);
                         border-radius: 15px;
                     }
