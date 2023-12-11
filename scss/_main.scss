@@ -98,7 +98,7 @@
                     justify-content: center;
                     flex-direction: column;
 
-                    .navHomeSub2ListaImagen{
+                    .navHomeSub2ListaImagen {
                         width: 30%;
                         border: 2px solid rgb(172, 172, 172);
                         border-radius: 15px;
@@ -130,8 +130,8 @@
                             appearance: none;
                         }
 
-                        &:focus{
-                           color: black; 
+                        &:focus {
+                            color: black;
                         }
                     }
                 }
@@ -149,11 +149,12 @@
     }
 }
 
-.navClickeado{
+.navClickeado {
     color: rgb(0, 0, 0);
     background-color: rgb(65, 249, 249);
     border-radius: 10px;
 }
+
 /* Dark Mode */
 .navHomeModoOscuro {
     background: linear-gradient(to right, rgb(22, 22, 22), rgb(4, 0, 28));
@@ -169,7 +170,7 @@
                     @include flexAllMedio;
                     color: white;
 
-                    .navHomeSub2ListaImagen{
+                    .navHomeSub2ListaImagen {
                         border: 2px solid rgb(0, 68, 169);
                     }
 
@@ -190,9 +191,9 @@
                             color: white;
                         }
 
-                        &:focus{
-                            color: white; 
-                         }
+                        &:focus {
+                            color: white;
+                        }
                     }
                 }
 
@@ -221,13 +222,13 @@
                     padding: 5%;
                     border: 1px solid rgb(107, 107, 107);
 
-                    .productosContenedorSub4Imagen{
+                    .productosContenedorSub4Imagen {
                         width: 150px;
                         height: 120px;
                         border: 3px solid rgb(72, 72, 72);
                         border-radius: 15px;
                     }
-                    
+
                     .productosContenedorDescripcion {
                         .productosContenedorNombreProducto {
                             font-size: 1.5rem;
@@ -246,7 +247,7 @@
                                     color: white;
                                 }
 
-                                &:active{
+                                &:active {
                                     scale: (0.9);
                                 }
                             }
@@ -278,9 +279,10 @@
                 .productosContenedorSub4 {
                     background-color: rgb(14, 14, 14);
                     border: 1px solid rgb(107, 107, 107);
-                    
+
                     .productosContenedorDescripcion {
                         color: white;
+
                         .productosContenedorDescripcionBotones {
                             .productosContenedorDescripcionBotonesAniadirAlCarrito {
                                 background-color: rgba(0, 0, 0, 0);
@@ -294,7 +296,7 @@
                                     color: white;
                                 }
 
-                                &:active{
+                                &:active {
                                     scale: (0.9);
                                 }
                             }
@@ -305,6 +307,39 @@
                                 color: white;
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* -------------------------------------------- 
+                    CARRITO
+ -------------------------------------------- */
+
+/* CARRITO */
+.productosContenedor {
+    .productosContenedorSub {
+        .productosContenedorSub2 {
+            .productosContenedorSub3 {
+                .productosContenedorEnElCarrito {
+                    background-color: rgb(228, 251, 251);
+                    padding: 5%;
+                    border: 3px solid rgb(172, 172, 172);
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .tituloEnElCarritoVacio {
+                        color: rgb(24, 24, 24);
+                        text-align: center;
+                        font-size: 1.7rem;
+                    }
+
+                    .logoProductosContenedorEnElCarrito {
+                        color: rgb(86, 86, 86);
                     }
                 }
             }

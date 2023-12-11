@@ -89,6 +89,26 @@
 
             margin: 0px 6px;
             padding: 5px;
+        }  
+    }
+
+    .botonesIndexCarritoLleno {
+        background: linear-gradient(to right, rgb(8, 8, 8), rgb(17, 17, 17));
+        border: 1px solid rgb(251, 0, 255);
+        color: rgb(251, 0, 255);
+
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 20px;
+
+        .botonesIndexLogo {
+            width: 27px;
+            color: rgb(251, 0, 255);
+            border: 1px solid rgb(251, 0, 255);
+
+            border-radius: 20px;
+            margin: 0px;
+            padding: 0px;
         }
     }
 
@@ -131,5 +151,93 @@
             margin: 0px 6px;
             padding: 5px;
         }
+    }
+
+    /* ----------------------------- */
+    /* VOLVER AL MENÚ */
+    .botonesCarritoVolver {
+        background: linear-gradient(to right, rgb(255, 0, 0), rgb(250, 99, 68));
+        color: white;
+        border: 1px solid black;
+        font-size: 1.1rem;
+        border-radius: 12px;
+
+        padding: 3px 15px;
+        transition: 0.3s;
+
+        &:active {
+            transform: scale(0.8);
+        }
+
+        .botonesIndexLogo {
+            @include botonesIndexLogo;
+            color: white;
+            border: 1px solid white;
+        }
+
+    }
+
+    /* Dark Mode */
+    .botonesCarritoVolverModoOscuroActivado {
+        background: rgba(0, 0, 0, 0);
+        color: red;
+        border: 1px solid red;
+
+        .botonesIndexLogo {
+            color: red;
+            border: 1px solid red;
+            border-radius: 20px;
+
+            margin: 0px 6px;
+            padding: 5px;
+        }
+    }
+
+    /* ----------------------------- */
+    /* VACIAR CARRITO */
+    .botonesCarritoBorrarAll {
+        background: none;
+        color: red;
+        border: 1px solid red;
+        font-size: 1.1rem;
+        border-radius: 12px;
+
+        padding: 3px 15px;
+        transition: 0.3s;
+
+        &:active {
+            transform: scale(0.8);
+        }
+
+        .botonesIndexLogo {
+            @include botonesIndexLogo;
+            color: red;
+            border: 1px solid red;
+        }
+
+    }
+
+    /* ----------------------------- */
+    /* PAGAR TODO */
+    .botonesCarritoPagar {
+        background: none;
+        color: rgb(40, 219, 0);
+        border: 1px solid rgb(40, 219, 0);
+        font-size: 1.1rem;
+        border-radius: 12px;
+
+        padding: 3px 15px;
+        transition: 0.3s;
+
+        &:active {
+            transform: scale(0.8);
+        }
+
+        .botonesIndexLogo {
+            @include botonesIndexLogo;
+            color: rgb(40, 219, 0);
+            border: 1px solid rgb(40, 219, 0);
+        }
+
     }
 }

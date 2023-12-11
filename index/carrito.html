@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💛 Tu Carrito 💛 — McDonald's SHOP </title>
+
+    <!-- CSS BS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- ------------------------------------ -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/estilo.css">
+
+    <!-- ------------------------------------ -->
+
+    <!-- ESTILO DE FUENTE EXTERNA -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@1&display=swap" rel="stylesheet">
+
+    <!-- ------------------------------------ -->
+
+    <!-- SEO -->
+</head>
+
+<body class="bodyIndex">
+    <!-- HEADER -->
+    <header class="container-fluid headerIndex" style="padding: 0px; margin: 0px;">
+        <div class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom headerIndexSub">
+            <a href="../index.html"
+                class="d-flex mb-3 mb-md-0 me-md-auto text-decoration-none headerIndexLogoPrincipalLink">
+                <img src="../img/mcdonals-logo-index.png" alt="mcdonals-logo" class="headerIndexLogoPrincipalLinkLogo">
+                <h1 class="headerIndexLogoPrincipalNombre">McDonald's SHOP</h1>
+            </a>
+
+            <ul class="nav nav-pills headerIndexLista">
+                <li class="nav-item headerIndexListaLi"><a href="https://www.mcdonalds.com.ar/" target="_blank"
+                        class="nav-link headerIndexListaLiLink">Página Oficial</a></li>
+                <li class="nav-item headerIndexListaLi"><a href="https://www.mcdonalds.com.ar/politica-de-privacidad"
+                        target="_blank" class="nav-link headerIndexListaLiLink">Política de Privacidad</a></li>
+                <li class="nav-item headerIndexListaLi"><a href="https://www.youtube.com/user/McDonaldsSur"
+                        target="_blank" class="nav-link headerIndexListaLiLink">Youtube</a></li>
+                <li class="nav-item headerIndexListaLi"><a href="https://www.facebook.com/McDonaldsArgentina/"
+                        target="_blank" class="nav-link headerIndexListaLiLink">Facebook</a></li>
+                <li class="nav-item headerIndexListaLi"><a href="https://www.instagram.com/mcdonalds_ar/"
+                        target="_blank" class="nav-link headerIndexListaLiLink">Instagram</a></li>
+                <li class="nav-item headerIndexListaLi"><a href="https://twitter.com/mcdonalds_ar" target="_blank"
+                        class="nav-link headerIndexListaLiLink">X</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- ------------------------------------ -->
+
+    <!-- MAIN -->
+    <main class="container-fluid" style="padding: 0px; margin: 0px;">
+
+        <section class="album py-5 productosContenedor">
+            <!-- Carrito Default -->
+            <div class="container productosContenedorSub" id="seccionDefault">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 productosContenedorSub2"
+                    id="contendorCargarProductoDefaultDelCarrito">  
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ------------------------------------ -->
+
+    <!-- BOTONES -->
+    <section class="botonesIndex">
+
+        <!-- VOLVER AL MENÚ-->
+        <button class="botonesCarritoVolver" id="idBotonCarritoVolver">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-arrow-left-circle botonesIndexLogo" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+            </svg>
+            Volver
+        </button>
+
+        <!-- BORRAR TODOS LOS PRODUCTOS-->
+        <button class="botonesCarritoBorrarAll" id="idBotonCarritoBorrarAll">
+            Vaciar Carrito
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-cart-x botonesIndexLogo" viewBox="0 0 16 16">
+                <path
+                    d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793z" />
+                <path
+                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+            </svg>
+        </button>
+
+        <!-- PAGAR-->
+        <button class="botonesCarritoPagar" id="idBotonCarritoPagar">
+            Pagar Todo
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-check botonesIndexLogo" viewBox="0 0 16 16">
+                <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+              </svg>
+        </button>
+    </section>
+
+    <!-- ------------------------------------ -->
+
+    <!-- JS BS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- ------------------------------------ -->
+
+    <!-- JS -->
+    <script src="../js/carrito.js"></script>
+</body>
+
+</html>

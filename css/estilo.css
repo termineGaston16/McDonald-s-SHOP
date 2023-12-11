@@ -308,6 +308,27 @@ html {
   color: white;
 }
 
+/* -------------------------------------------- 
+                    CARRITO
+ -------------------------------------------- */
+/* CARRITO */
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorEnElCarrito {
+  background-color: rgb(228, 251, 251);
+  padding: 5%;
+  border: 3px solid rgb(172, 172, 172);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorEnElCarrito .tituloEnElCarritoVacio {
+  color: rgb(24, 24, 24);
+  text-align: center;
+  font-size: 1.7rem;
+}
+.productosContenedor .productosContenedorSub .productosContenedorSub2 .productosContenedorSub3 .productosContenedorEnElCarrito .logoProductosContenedorEnElCarrito {
+  color: rgb(86, 86, 86);
+}
+
 .botonesIndex {
   width: 100vw;
   position: fixed;
@@ -326,6 +347,13 @@ html {
   /* ----------------------------- */
   /* CAMBIAR PRECIO */
   /* Dark Mode */
+  /* ----------------------------- */
+  /* VOLVER AL MENÚ */
+  /* Dark Mode */
+  /* ----------------------------- */
+  /* VACIAR CARRITO */
+  /* ----------------------------- */
+  /* PAGAR TODO */
 }
 .botonesIndex .botonesIndexModoOscuro {
   background: linear-gradient(to right, rgb(8, 8, 8), rgb(17, 17, 17));
@@ -389,6 +417,22 @@ html {
   margin: 0px 6px;
   padding: 5px;
 }
+.botonesIndex .botonesIndexCarritoLleno {
+  background: linear-gradient(to right, rgb(8, 8, 8), rgb(17, 17, 17));
+  border: 1px solid rgb(251, 0, 255);
+  color: rgb(251, 0, 255);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+.botonesIndex .botonesIndexCarritoLleno .botonesIndexLogo {
+  width: 27px;
+  color: rgb(251, 0, 255);
+  border: 1px solid rgb(251, 0, 255);
+  border-radius: 20px;
+  margin: 0px;
+  padding: 0px;
+}
 .botonesIndex .botonesIndexCambiarPrecio {
   background: linear-gradient(to right, rgb(47, 255, 137), rgb(0, 233, 0));
   color: black;
@@ -419,6 +463,75 @@ html {
   border-radius: 20px;
   margin: 0px 6px;
   padding: 5px;
+}
+.botonesIndex .botonesCarritoVolver {
+  background: linear-gradient(to right, rgb(255, 0, 0), rgb(250, 99, 68));
+  color: white;
+  border: 1px solid black;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  padding: 3px 15px;
+  transition: 0.3s;
+}
+.botonesIndex .botonesCarritoVolver:active {
+  transform: scale(0.8);
+}
+.botonesIndex .botonesCarritoVolver .botonesIndexLogo {
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+  color: white;
+  border: 1px solid white;
+}
+.botonesIndex .botonesCarritoVolverModoOscuroActivado {
+  background: rgba(0, 0, 0, 0);
+  color: red;
+  border: 1px solid red;
+}
+.botonesIndex .botonesCarritoVolverModoOscuroActivado .botonesIndexLogo {
+  color: red;
+  border: 1px solid red;
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+}
+.botonesIndex .botonesCarritoBorrarAll {
+  background: none;
+  color: red;
+  border: 1px solid red;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  padding: 3px 15px;
+  transition: 0.3s;
+}
+.botonesIndex .botonesCarritoBorrarAll:active {
+  transform: scale(0.8);
+}
+.botonesIndex .botonesCarritoBorrarAll .botonesIndexLogo {
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+  color: red;
+  border: 1px solid red;
+}
+.botonesIndex .botonesCarritoPagar {
+  background: none;
+  color: rgb(40, 219, 0);
+  border: 1px solid rgb(40, 219, 0);
+  font-size: 1.1rem;
+  border-radius: 12px;
+  padding: 3px 15px;
+  transition: 0.3s;
+}
+.botonesIndex .botonesCarritoPagar:active {
+  transform: scale(0.8);
+}
+.botonesIndex .botonesCarritoPagar .botonesIndexLogo {
+  border-radius: 20px;
+  margin: 0px 6px;
+  padding: 5px;
+  color: rgb(40, 219, 0);
+  border: 1px solid rgb(40, 219, 0);
 }
 
 /*# sourceMappingURL=estilo.css.map */
