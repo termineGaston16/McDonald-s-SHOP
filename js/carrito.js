@@ -1,3 +1,4 @@
+/* ------------------------------------ */
 /* Recorrer el LocalStorage */
 /* Dark Mode */
 if (localStorage.getItem("modoOscuro") == "true") {
@@ -10,20 +11,22 @@ if (localStorage.getItem("modoOscuro") == "true") {
 
 /* Cambiar Precio*/
 if (localStorage.getItem("precioDolarActivado") == "false") {
-    document.querySelectorAll("#precioDolar").forEach((producto) => {
-        producto.classList.add("d-none")
-    })
-    document.querySelectorAll("#precioPeso").forEach((producto) => {
-        producto.classList.remove("d-none")
-    })
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".precioDolar").forEach((producto) => {
+            producto.classList.add("d-none")
+        })
+        document.querySelectorAll(".precioPeso").forEach((producto) => {
+            producto.classList.remove("d-none")
+        })
+    });
+
 }
 
-/* ------ */
-
+/* ------------------------------------ */
 /* Productos en el carrito */
-let productosAlmacenados=""
-if (localStorage.getItem("productosEnElCarro")!="") {
-     productosAlmacenados = JSON.parse(localStorage.getItem("productosEnElCarro"))
+let productosAlmacenados = ""
+if (localStorage.getItem("productosEnElCarro") != "") {
+    productosAlmacenados = JSON.parse(localStorage.getItem("productosEnElCarro"))
 }
 
 /* ------------------------------------ */
@@ -42,10 +45,14 @@ function actualizarTituleCarrito() {
 
 function cargarProductosTraidosDelCarrito() {
     document.querySelector("#contendorCargarProductoDefaultDelCarrito").innerHTML = ""
+    document.querySelector("#idPrecioTotal").innerHTML = ""
+    localStorage.setItem("precioTotalDolar", 0)
+    localStorage.setItem("precioTotalPesos", 0)
+    let precioTotalDolar = 0;
+    let precioTotalPesos = 0;
+
 
     if (localStorage.getItem("indexProductosEnElCarrito") == 0) {
-
-
         div1 = document.createElement("div");
         div1.classList.add("col")
         div1.classList.add("productosContenedorSub3")
@@ -64,9 +71,11 @@ function cargarProductosTraidosDelCarrito() {
 
         document.querySelector("#contendorCargarProductoDefaultDelCarrito").append(div1);
 
+        /* --- */
+        document.querySelector("#idPrecioTotal").innerText = "Precio Total: $0";
+
 
     } else {
-
         productosAlmacenados.forEach(producto => {
             div1 = document.createElement("div");
             div1.classList.add("col")
@@ -79,16 +88,28 @@ function cargarProductosTraidosDelCarrito() {
             <h5 class="productosContenedorNombreProducto">${producto.nombre} — x(${producto.cantidad})</h5>
             <div
             class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-            <button type="button"
-            <small class="productosContenedorDescripcionPrecio" id="precioDolar">$${producto.precioDolar * producto.cantidad}.</small>
-            <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">${producto.precioPesos * producto.cantidad}args.</small>
+            <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar * producto.cantidad}.</small>
+            <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos * producto.cantidad}args.</small>
             </div>
-         </div>
-        </div>
+            </div>
+            </div>
                 `;
+
+            precioTotalDolar += producto.precioDolar * producto.cantidad;
+            precioTotalPesos += producto.precioPesos * producto.cantidad;
 
             document.querySelector("#contendorCargarProductoDefaultDelCarrito").append(div1);
         });
+
+        localStorage.setItem("precioTotalDolar", precioTotalDolar)
+        localStorage.setItem("precioTotalPesos", precioTotalPesos)
+
+        if (localStorage.getItem("precioDolarActivado") == "false") {
+            document.querySelector("#idPrecioTotal").innerText = `Precio Total: ${precioTotalPesos}$`;
+        } else {
+            document.querySelector("#idPrecioTotal").innerText = `Precio Total: ${precioTotalDolar}$`;
+        }
+
     }
 }
 
@@ -100,12 +121,46 @@ document.querySelector("#idBotonCarritoVolver").addEventListener("click", () => 
 });
 
 /* Borrar todo el Carrito */
-document.querySelector("#idBotonCarritoBorrarAll").addEventListener("click", ()=>{
-    productosAlmacenados.splice(0,productosAlmacenados.lenght)
-    localStorage.setItem("indexProductosEnElCarrito",0)
-    localStorage.setItem("productosEnElCarro","")
+document.querySelector("#idBotonCarritoBorrarAll").addEventListener("click", () => {
+    productosAlmacenados.splice(0, productosAlmacenados.lenght)
+    localStorage.setItem("indexProductosEnElCarrito", 0)
+    localStorage.setItem("productosEnElCarro", "")
     cargarProductosTraidosDelCarrito()
 })
+
+/* Borrar todo el Carrito */
+document.querySelector("#idBotonCarritoPagar").addEventListener("click", () => {
+    let datosPersonales = {};
+    localStorage.setItem("datosDelComprador","")
+
+    Swal.fire({
+        title: "Introduce tus datos personales:",
+        html:
+            '<input id="nombreIntroducido" class="swal2-input" placeholder="Nombre" autocapitalize="off">' +
+            '<input id="apelleidoIntroducido" class="swal2-input" placeholder="Apellido" autocapitalize="off">' +
+            '<input id="dniIntroducido" class="swal2-input" placeholder="DNI" autocapitalize="off">',
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        cancelButtonText: "Rechazar",
+        showLoaderOnConfirm: true,
+        preConfirm: () => {
+            let nombre = document.getElementById('nombreIntroducido').value;
+            let apellido = document.getElementById('apelleidoIntroducido').value;
+            let dni = document.getElementById('dniIntroducido').value;
+
+            if (!nombre || !apellido || !dni) {
+                Swal.showValidationMessage("Todos los campos son obligatorios");
+            } else {
+                datosPersonales = { nombre, apellido, dni };
+            }
+        },
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.setItem("datosDelComprador",JSON.stringify(datosPersonales))
+        }
+    });
+});
+
 
 /* ------------------------------------ */
 actualizarTituleCarrito()

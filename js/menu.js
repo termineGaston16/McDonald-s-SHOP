@@ -13,20 +13,23 @@ if (localStorage.getItem("modoOscuro") == "true") {
 
 /* Cambiar Precio*/
 if (localStorage.getItem("precioDolarActivado") == "false") {
-    document.querySelectorAll("#precioDolar").forEach((producto) => {
-        producto.classList.add("d-none")
-    })
-    document.querySelectorAll("#precioPeso").forEach((producto) => {
-        producto.classList.remove("d-none")
-    })
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".precioDolar").forEach((producto) => {
+            producto.classList.add("d-none")
+        })
+        document.querySelectorAll(".precioPeso").forEach((producto) => {
+            producto.classList.remove("d-none")
+        })
+    });
+
 }
 
 /* ------ */
 
 /* Productos en el carrito */
-let prudctosDelCarrito=[]
-if (localStorage.getItem("productosEnElCarro")!="") {
-    prudctosDelCarrito=JSON.parse(localStorage.getItem("productosEnElCarro"))
+let prudctosDelCarrito = []
+if (localStorage.getItem("productosEnElCarro") != "") {
+    prudctosDelCarrito = JSON.parse(localStorage.getItem("productosEnElCarro"))
 }
 
 /* ------------------------------------ */
@@ -299,7 +302,7 @@ const todosLosProductos = [
 ]
 
 let productosEnElCarrito = []
-productosEnElCarrito=prudctosDelCarrito;
+productosEnElCarrito = prudctosDelCarrito;
 
 /* ------------------------------------ */
 /* Funciones */
@@ -341,8 +344,8 @@ function cargarProductos(catergoriaDelProducto, idDelContenedor) {
         <button type="button"
             class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
             al carrito</button>
-        <small class="productosContenedorDescripcionPrecio" id="precioDolar">$${producto.precioDolar}.</small>
-        <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">${producto.precioPesos}args.</small>
+        <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
+        <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
             </div>
          </div>
         </div>
@@ -373,8 +376,8 @@ function cargarProductosDefault() {
         <button type="button"
             class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
             al carrito</button>
-        <small class="productosContenedorDescripcionPrecio" id="precioDolar">$${producto.precioDolar}.</small>
-        <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">${producto.precioPesos}args.</small>
+            <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
+            <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
             </div>
          </div>
         </div>
@@ -448,8 +451,8 @@ function cargarProductoDeInput(arrayDelInput) {
         <button type="button"
             class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
             al carrito</button>
-        <small class="productosContenedorDescripcionPrecio" id="precioDolar">$${producto.precioDolar}.</small>
-        <small class="productosContenedorDescripcionPrecio d-none" id="precioPeso">${producto.precioPesos}args.</small>
+        <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
+        <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
             </div>
          </div>
         </div>
@@ -461,16 +464,16 @@ function cargarProductoDeInput(arrayDelInput) {
     agregarAlCarrito()
 }
 
-function actualizarLogoCarrito(){
-    document.querySelector("#idBotonCarrito").innerHTML=""
+function actualizarLogoCarrito() {
+    document.querySelector("#idBotonCarrito").innerHTML = ""
     let indicadorDeProductos = productosEnElCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
 
     if (document.querySelector("#idBotonCarrito").classList.contains("botonesIndexCarritoLleno")) {
         document.querySelector("#idBotonCarrito").classList.remove("botonesIndexCarritoLleno")
     }
 
-    if (productosEnElCarrito.length==0) {
-        document.querySelector("#idBotonCarrito").innerHTML=`
+    if (productosEnElCarrito.length == 0) {
+        document.querySelector("#idBotonCarrito").innerHTML = `
         Tu carrito
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                 class="bi bi-cart4 botonesIndexLogo" viewBox="0 0 16 16">
@@ -478,27 +481,27 @@ function actualizarLogoCarrito(){
                     d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
         </svg>
         `
-    } else {   
+    } else {
         document.querySelector("#idBotonCarrito").classList.add("botonesIndexCarritoLleno")
 
-        if (indicadorDeProductos>=99) {
-            document.querySelector("#idBotonCarrito").innerHTML=`
+        if (indicadorDeProductos >= 99) {
+            document.querySelector("#idBotonCarrito").innerHTML = `
             Tu carrito
             <div class="botonesIndexLogo">
             +99
             </div>
-            ` 
+            `
         } else {
-        document.querySelector("#idBotonCarrito").innerHTML=`
+            document.querySelector("#idBotonCarrito").innerHTML = `
         Tu carrito
         <div class="botonesIndexLogo">
         ${indicadorDeProductos}
         </div>
         `
-        } 
+        }
     }
 
-    localStorage.setItem("indexProductosEnElCarrito",indicadorDeProductos)
+    localStorage.setItem("indexProductosEnElCarrito", indicadorDeProductos)
 }
 
 function agregarAlCarrito() {
@@ -661,7 +664,7 @@ document.querySelector("#idBotonModoOscuro").addEventListener("click", () => {
 
 /* ------ */
 /* Carrito */
-document.querySelector("#idBotonCarrito").addEventListener("click",()=>{
+document.querySelector("#idBotonCarrito").addEventListener("click", () => {
     window.location.href = "../index/carrito.html";
 })
 
@@ -670,14 +673,14 @@ document.querySelector("#idBotonCarrito").addEventListener("click",()=>{
 /* Cambiar Precio */
 document.querySelector("#idBotonCambiarPrecio").addEventListener("click", () => {
 
-    document.querySelectorAll("#precioDolar").forEach((producto) => {
+    document.querySelectorAll(".precioDolar").forEach((producto) => {
         producto.classList.toggle("d-none")
     })
-    document.querySelectorAll("#precioPeso").forEach((producto) => {
+    document.querySelectorAll(".precioPeso").forEach((producto) => {
         producto.classList.toggle("d-none")
     })
 
-    if (document.querySelector("#precioDolar").classList.contains("d-none")) {
+    if (document.querySelector(".precioDolar").classList.contains("d-none")) {
         localStorage.setItem("precioDolarActivado", false)
     } else {
         localStorage.setItem("precioDolarActivado", true)
