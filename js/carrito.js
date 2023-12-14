@@ -128,7 +128,7 @@ document.querySelector("#idBotonCarritoBorrarAll").addEventListener("click", () 
     cargarProductosTraidosDelCarrito()
 })
 
-/* Borrar todo el Carrito */
+/* Pagar */
 document.querySelector("#idBotonCarritoPagar").addEventListener("click", () => {
     let datosPersonales = {};
     localStorage.setItem("datosDelComprador","")
@@ -157,6 +157,7 @@ document.querySelector("#idBotonCarritoPagar").addEventListener("click", () => {
     }).then((result) => {
         if (result.isConfirmed) {
             localStorage.setItem("datosDelComprador",JSON.stringify(datosPersonales))
+            window.open('../index/comprobanteDeCompra.html', '_blank');
         }
     });
 });

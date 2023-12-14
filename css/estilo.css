@@ -6,6 +6,7 @@
 
 @font-face {
   font-family: "Baskervville", serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 html {
   scroll-behavior: smooth;
@@ -532,6 +533,104 @@ html {
   padding: 5px;
   color: rgb(40, 219, 0);
   border: 1px solid rgb(40, 219, 0);
+}
+
+.swal2-popup {
+  font-size: 0.8rem;
+}
+
+.swal2-title {
+  color: rgb(163, 145, 28);
+}
+
+.swal2-input {
+  border: 2px solid rgb(255, 153, 19);
+  border-radius: 20px; /* Radio del borde de los campos de entrada */
+}
+
+.swal2-confirm {
+  background-color: #34db37 !important;
+  color: #fff;
+}
+
+.swal2-cancel {
+  background-color: #db3434 !important;
+  color: #fff;
+}
+
+.swal2-validation-message {
+  color: #4d3ce7;
+}
+
+.bodyTique {
+  font-family: "Josefin Sans", sans-serif;
+  background: linear-gradient(to right, rgb(255, 255, 255), rgb(181, 181, 181));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bodyTique .tique {
+  margin: 5% 0px;
+  padding: 5% 10%;
+  background-color: white;
+  border: 5px solid rgb(169, 169, 169);
+  width: 70%;
+}
+.bodyTique .tique .subTique {
+  /* Numero de Orden */
+  /* Barra Separadora */
+  /* Info del Mac */
+  /* Info Actual */
+  /* Info Actual del Cliente*/
+}
+.bodyTique .tique .subTique .tiqueNumeroDeOrden {
+  font-weight: bold;
+  font-size: 3rem;
+}
+.bodyTique .tique .subTique .tiqueBarraSeparadora {
+  font-size: 2rem;
+}
+.bodyTique .tique .subTique .tiqueContendorInfoMac .tiqueContendorInfoMacP {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.bodyTique .tique .subTique .tiqueContendorInfoActual .tiqueContendorInfoActualDates .tiqueContendorInfoActualDatesSub .tiqueContendorInfoActualP {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.bodyTique .tique .subTique .tiqueContendorInfoActualCliente .tiqueContendorInfoActualClienteSub .tiqueContendorInfoActualP {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.bodyTique .tique .subTique .tiqueContendorProductos .tiqueContendorProductosP {
+  font-size: 1.3rem;
+}
+.bodyTique .tique .subTique .tiquePrecioTotal {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+@media (min-width: 0px) and (max-width: 627px) {
+  .navHome .navHomeSub .navHomeSub2 .navHomeSub2Listado {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: hidden;
+  }
+  .navHome .navHomeSub .navHomeSub2 .navHomeSub2Listado .navHomeSub2Lista {
+    width: 90%;
+  }
+  .botonesIndex {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-wrap: wrap;
+    width: 50%;
+    right: 2%;
+    gap: 15px;
+  }
 }
 
 /*# sourceMappingURL=estilo.css.map */

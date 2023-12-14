@@ -1,0 +1,35 @@
+@media(min-width: 0px) and (max-width: 627px) {
+    .navHome {
+        .navHomeSub {
+            .navHomeSub2 {
+                .navHomeSub2Listado {
+                    width: 80%;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    overflow-y: hidden;
+
+                    .navHomeSub2Lista {
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .botonesIndex {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        flex-wrap: wrap;
+        width: 50%;
+
+        right: 2%;
+
+        gap: 15px;
+
+    }
+}

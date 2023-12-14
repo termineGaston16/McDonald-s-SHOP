@@ -1,0 +1,72 @@
+.bodyTique{
+    font-family: 'Josefin Sans', sans-serif;
+    background: linear-gradient(to right, rgb(255, 255, 255), rgb(181, 181, 181));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .tique{
+        margin: 5% 0px;
+        padding: 5% 10%;
+        background-color: white;
+        border: 5px solid rgb(169, 169, 169);
+
+        width: 70%;
+
+        .subTique{
+
+            /* Numero de Orden */
+            .tiqueNumeroDeOrden{
+                font-weight: bold;
+                font-size: 3.0rem;
+            }
+
+            /* Barra Separadora */
+            .tiqueBarraSeparadora{
+                font-size: 2.0rem;
+            }
+
+            /* Info del Mac */
+            .tiqueContendorInfoMac{
+                .tiqueContendorInfoMacP{
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+            }
+
+            /* Info Actual */
+            .tiqueContendorInfoActual{
+                .tiqueContendorInfoActualDates{
+                    .tiqueContendorInfoActualDatesSub{
+                        .tiqueContendorInfoActualP{
+                            font-size: 1.2rem;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+
+            /* Info Actual del Cliente*/
+            .tiqueContendorInfoActualCliente{
+                .tiqueContendorInfoActualClienteSub{
+                    .tiqueContendorInfoActualP{
+                        font-size: 1.2rem;
+                            font-weight: bold;
+                    }
+                }
+            }
+
+            .tiqueContendorProductos{
+                .tiqueContendorProductosP{
+                    font-size: 1.3rem;
+                }
+            }
+
+            .tiquePrecioTotal{
+                font-weight: bold;
+                font-size: 2.5rem;
+            }
+        }
+    }
+}

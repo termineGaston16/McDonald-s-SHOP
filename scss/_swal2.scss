@@ -1,0 +1,26 @@
+.swal2-popup {
+    font-size: 0.8rem;
+}
+
+.swal2-title {
+    color: rgb(163, 145, 28);
+}
+
+.swal2-input {
+    border: 2px solid rgb(255, 153, 19);
+    border-radius: 20px; /* Radio del borde de los campos de entrada */
+}
+
+.swal2-confirm{
+    background-color: #34db37 !important;
+    color: #fff;
+}
+
+.swal2-cancel {
+    background-color: #db3434 !important;
+    color: #fff;
+}
+
+.swal2-validation-message {
+    color: #4d3ce7;
+}
