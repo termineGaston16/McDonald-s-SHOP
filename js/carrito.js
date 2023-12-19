@@ -82,7 +82,9 @@ function cargarProductosTraidosDelCarrito() {
             div1.classList.add("productosContenedorSub3")
             div1.innerHTML = ` 
             <div class="card shadow-sm productosContenedorSub4">
-                <img src="${producto.ilustracion}" alt="${producto.nombre}"
+           
+            <button type="button" class="btn-close botonCloseCarrito" id="${producto.id}" style="margin-bottom: 8px;" aria-label="Close"></button>
+            <img src="${producto.ilustracion}" alt="${producto.nombre}"
              class="productosContenedorSub4Imagen">
             <div class="card-body productosContenedorDescripcion">
             <h5 class="productosContenedorNombreProducto">${producto.nombre} — x(${producto.cantidad})</h5>
@@ -99,6 +101,8 @@ function cargarProductosTraidosDelCarrito() {
             precioTotalPesos += producto.precioPesos * producto.cantidad;
 
             document.querySelector("#contendorCargarProductoDefaultDelCarrito").append(div1);
+
+            cerrarProductoCarrito()
         });
 
         localStorage.setItem("precioTotalDolar", precioTotalDolar)
@@ -109,9 +113,43 @@ function cargarProductosTraidosDelCarrito() {
         } else {
             document.querySelector("#idPrecioTotal").innerText = `Precio Total: ${precioTotalDolar}$`;
         }
-
     }
 }
+
+function cerrarProductoCarrito() {
+    let botonClose = document.querySelectorAll(".botonCloseCarrito");
+
+    botonClose.forEach(boton => {
+        boton.addEventListener("click", (e) => {
+            let productoEncontrado = productosAlmacenados.find(producto => producto.id == e.target.id);
+
+            /* ELIMINARLO DEL CARRITO */
+            if (productoEncontrado) {
+
+                /* Restar la cantidad del producto index desde el local */
+                let index1 = localStorage.getItem("indexProductosEnElCarrito");
+                localStorage.setItem("indexProductosEnElCarrito", index1 - productoEncontrado.cantidad);
+
+                /* Borrar el producto desde el array */
+                let index = productosAlmacenados.findIndex(producto => producto.id == productoEncontrado.id);
+                if (index !== -1) {
+                    productosAlmacenados.splice(index, 1);
+                }
+
+                /* Actualizar el producto en el local */
+                localStorage.setItem("productosEnElCarro", JSON.stringify(productosAlmacenados));
+
+                if (productosAlmacenados.length === 0) {
+                    localStorage.setItem("productosEnElCarro", "");
+                }
+
+                cargarProductosTraidosDelCarrito();
+                actualizarTituleCarrito();
+            }
+        });
+    });
+}
+
 
 /* ------------------------------------ */
 /* Funcion de los botones */
@@ -122,16 +160,40 @@ document.querySelector("#idBotonCarritoVolver").addEventListener("click", () => 
 
 /* Borrar todo el Carrito */
 document.querySelector("#idBotonCarritoBorrarAll").addEventListener("click", () => {
-    productosAlmacenados.splice(0, productosAlmacenados.lenght)
-    localStorage.setItem("indexProductosEnElCarrito", 0)
-    localStorage.setItem("productosEnElCarro", "")
-    cargarProductosTraidosDelCarrito()
+
+    if (localStorage.getItem("indexProductosEnElCarrito")==0) {
+        Swal.fire({
+            text: "No hay productos en el carrito",
+            confirmButtonText: "Confirmar",
+        })
+    }else{
+        Swal.fire({
+            text: "¿Estás seguro/a de borrar tus productos?",
+            showCancelButton: true,
+            confirmButtonText: "Confirmar",
+            cancelButtonText: "Rechazar",
+        }).then((result) => {
+            if (result.isConfirmed) {
+    
+                productosAlmacenados.splice(0, productosAlmacenados.lenght)
+                localStorage.setItem("indexProductosEnElCarrito", 0)
+                localStorage.setItem("productosEnElCarro", "")
+                cargarProductosTraidosDelCarrito()
+                actualizarTituleCarrito();
+    
+                Swal.fire({
+                    text: "Todos los productos fueron eliminados.",
+                    confirmButtonText: "Okis"
+                });
+            }
+        });
+    }
 })
 
 /* Pagar */
 document.querySelector("#idBotonCarritoPagar").addEventListener("click", () => {
     let datosPersonales = {};
-    localStorage.setItem("datosDelComprador","")
+    localStorage.setItem("datosDelComprador", "")
 
     Swal.fire({
         title: "Introduce tus datos personales:",
@@ -156,8 +218,18 @@ document.querySelector("#idBotonCarritoPagar").addEventListener("click", () => {
         },
     }).then((result) => {
         if (result.isConfirmed) {
-            localStorage.setItem("datosDelComprador",JSON.stringify(datosPersonales))
+            localStorage.setItem("datosDelComprador", JSON.stringify(datosPersonales))
             window.open('../index/comprobanteDeCompra.html', '_blank');
+
+            setTimeout(function () {
+                productosAlmacenados.splice(0, productosAlmacenados.length);
+                localStorage.setItem("indexProductosEnElCarrito", 0);
+                localStorage.setItem("productosEnElCarro", "");
+                cargarProductosTraidosDelCarrito();
+                actualizarTituleCarrito();
+                location.reload();
+            }, 1500);
+
         }
     });
 });
@@ -166,3 +238,4 @@ document.querySelector("#idBotonCarritoPagar").addEventListener("click", () => {
 /* ------------------------------------ */
 actualizarTituleCarrito()
 cargarProductosTraidosDelCarrito()
+

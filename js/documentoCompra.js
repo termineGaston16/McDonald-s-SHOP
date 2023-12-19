@@ -123,4 +123,18 @@ if (localStorage.getItem("precioDolarActivado") == "true") {
     document.querySelector("#idTiqueContenido").append(precioFinal);
 }
 
+if (localStorage.getItem("comerAquí") == "true") {
+    dondeComera = document.createElement("p");
+    dondeComera.innerHTML = `
+        ¡PARA COMER AQUÍ!
+    `
+    document.querySelector("#idTiqueContenido").append(dondeComera);
+} else {
+    dondeComera = document.createElement("p");
+    dondeComera.innerHTML = `
+        ¡PARA LLEVAR!
+    `
+    document.querySelector("#idTiqueContenido").append(dondeComera);
+}
+
 

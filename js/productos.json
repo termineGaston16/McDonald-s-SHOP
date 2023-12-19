@@ -1,0 +1,266 @@
+[
+    {
+        "id": 1,
+        "nombre": "Hamburguesa",
+        "precioDolar": 1,
+        "precioPesos": 1000,
+        "ilustracion": "../img/hamburguesas/hamburguesa-con-queso.png",
+        "categoria": {
+            "nombre": "hamburguesa",
+            "id": "h-00"
+        }
+    }
+    ,
+    {
+        "id": 2,
+        "nombre": "Bacon Cheddar McMelt",
+        "precioDolar": 20,
+        "precioPesos": 5500,
+        "ilustracion": "../img/hamburguesas/bacon-cheddar-mcmelt.png",
+        "categoria": {
+            "nombre": "hamburguesa",
+            "id": "h-01"
+        }
+    }
+    ,
+    {
+        "id": 3,
+        "nombre": "Big Mac",
+        "precioDolar": 10,
+        "precioPesos": 3260,
+        "ilustracion": "../img/hamburguesas/big-mac.png",
+        "categoria": {
+            "nombre": "hamburguesa",
+            "id": "h-02"
+        }
+    }
+    ,
+    {
+        "id": 4,
+        "nombre": "Cuarto de Libra con Queso",
+        "precioDolar": 7,
+        "precioPesos": 4800,
+        "ilustracion": "../img/hamburguesas/cuarto-de-libra-con-queso.png",
+        "categoria": {
+            "nombre": "hamburguesa",
+            "id": "h-03"
+        }
+    }
+    ,
+    {
+        "id": 5,
+        "nombre": "Grand Triple Tasty Bacon",
+        "precioDolar": 25,
+        "precioPesos": 9740,
+        "ilustracion": "../img/hamburguesas/grand-triple-tasty-bacon.png",
+        "categoria": {
+            "nombre": "hamburguesa",
+            "id": "h-04"
+        }
+    }
+    ,
+    {
+        "id": 6,
+        "nombre": "McCrispy Chick Deluxe Spicy",
+        "precioDolar": 7,
+        "precioPesos": 5900,
+        "ilustracion": "../img/hamburguesa-de-pollo/mccripspy-chicken-deluxe-spicy.png",
+        "categoria": {
+            "nombre": "hamburguesa-de-pollo",
+            "id": "hp-00"
+        }
+    }
+    ,
+    {
+        "id": 7,
+        "nombre": "Nuggets 4",
+        "precioDolar": 1,
+        "precioPesos": 1000,
+        "ilustracion": "../img/hamburguesa-de-pollo/mcnuggets-4.png",
+        "categoria": {
+            "nombre": "hamburguesa-de-pollo",
+            "id": "hp-01"
+        }
+    }
+    ,
+    {
+        "id": 8,
+        "nombre": "McPollo",
+        "precioDolar": 2,
+        "precioPesos": 2670,
+        "ilustracion": "../img/hamburguesa-de-pollo/mc-pollo.png",
+        "categoria": {
+            "nombre": "hamburguesa-de-pollo",
+            "id": "hp-02"
+        }
+    }
+    ,
+    {
+        "id": 9,
+        "nombre": "Papas con Cheddar y Bacon",
+        "precioDolar": 3,
+        "precioPesos": 1900,
+        "ilustracion": "../img/papas-y-complementos/papas-cheddar-y-bacon.png",
+        "categoria": {
+            "nombre": "papas-y-complementos",
+            "id": "pp-00"
+        }
+    }
+    ,
+    {
+        "id": 10,
+        "nombre": "Papas Grandes",
+        "precioDolar": 2,
+        "precioPesos": 800,
+        "ilustracion": "../img/papas-y-complementos/papas-grandes.png",
+        "categoria": {
+            "nombre": "papas-y-complementos",
+            "id": "pp-01"
+        }
+    }
+    ,
+    {
+        "id": 11,
+        "nombre": "Papas Kids",
+        "precioDolar": 1,
+        "precioPesos": 400,
+        "ilustracion": "../img/papas-y-complementos/papas-kids.png",
+        "categoria": {
+            "nombre": "papas-y-complementos",
+            "id": "pp-02"
+        }
+    }
+    ,
+    {
+        "id": 12,
+        "nombre": "Papas Tasty",
+        "precioDolar": 2,
+        "precioPesos": 1200,
+        "ilustracion": "../img/papas-y-complementos/papas-tasty.png",
+        "categoria": {
+            "nombre": "papas-y-complementos",
+            "id": "pp-03"
+        }
+    }
+    ,
+    {
+        "id": 13,
+        "nombre": "Side Salad",
+        "precioDolar": 2,
+        "precioPesos": 1200,
+        "ilustracion": "../img/papas-y-complementos/side-salad.png",
+        "categoria": {
+            "nombre": "papas-y-complementos",
+            "id": "pp-04"
+        }
+    }
+    ,
+    {
+        "id": 14,
+        "nombre": "Jugo de Manzana",
+        "precioDolar": 3,
+        "precioPesos": 800,
+        "ilustracion": "../img/bebidas/jugo-de-manzana.png",
+        "categoria": {
+            "nombre": "bebidas",
+            "id": "b-00"
+        }
+    }
+    ,
+    {
+        "id": 15,
+        "nombre": "Coca Cola chica",
+        "precioDolar": 1,
+        "precioPesos": 800,
+        "ilustracion": "../img/bebidas/coca-colca-chica.png",
+        "categoria": {
+            "nombre": "bebidas",
+            "id": "b-01"
+        }
+    }
+    ,
+    {
+        "id": 16,
+        "nombre": "Agua sin gas. (500ml)",
+        "precioDolar": 1,
+        "precioPesos": 800,
+        "ilustracion": "../img/bebidas/agua-sin-gas.png",
+        "categoria": {
+            "nombre": "bebidas",
+            "id": "b-02"
+        }
+    }
+    ,
+    {
+        "id": 17,
+        "nombre": "Cono Combinado",
+        "precioDolar": 2,
+        "precioPesos": 600,
+        "ilustracion": "../img/postres/cono-combinado.png",
+        "categoria": {
+            "nombre": "postres",
+            "id": "ps-00"
+        }
+    }
+    ,
+    {
+        "id": 18,
+        "nombre": "Cono KitKat",
+        "precioDolar": 3,
+        "precioPesos": 1200,
+        "ilustracion": "../img/postres/cono-kitkat.png",
+        "categoria": {
+            "nombre": "postres",
+            "id": "ps-01"
+        }
+    }
+    ,
+    {
+        "id": 19,
+        "nombre": "McFlurry Croncantella",
+        "precioDolar": 7,
+        "precioPesos": 3600,
+        "ilustracion": "../img/postres/mcflurry-crocantella.png",
+        "categoria": {
+            "nombre": "postres",
+            "id": "ps-02"
+        }
+    }
+    ,
+    {
+        "id": 20,
+        "nombre": "Sundae de Chocolate",
+        "precioDolar": 3,
+        "precioPesos": 1350,
+        "ilustracion": "../img/postres/sundae-chocolate.png",
+        "categoria": {
+            "nombre": "postres",
+            "id": "ps-03"
+        }
+    }
+    ,
+    {
+        "id": 21,
+        "nombre": "Ensalada Deli Fresh Pollo Grille",
+        "precioDolar": 5,
+        "precioPesos": 2600,
+        "ilustracion": "../img/ensaladas/ensalada-deli-fresh-con-pollo-grille.png",
+        "categoria": {
+            "nombre": "ensalada",
+            "id": "en-00"
+        }
+    }
+    ,
+    {
+        "id": 22,
+        "nombre": "Ensalada Deli Fresh Vegetariana",
+        "precioDolar": 3,
+        "precioPesos": 2400,
+        "ilustracion": "../img/ensaladas/ensalada-deli-fresh-veggie.png",
+        "categoria": {
+            "nombre": "ensalada",
+            "id": "en-01"
+        }
+    }
+
+]
