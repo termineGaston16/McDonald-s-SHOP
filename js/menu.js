@@ -33,7 +33,6 @@ if (localStorage.getItem("productosEnElCarro") != "") {
 }
 
 
-
 /* ------------------------------------ */
 /* Arrays */
 let productosEnElCarrito = []
