@@ -182,6 +182,7 @@ function cargarProductoDeInput(arrayDelInput) {
 
 function actualizarLogoCarrito() {
     document.querySelector("#idBotonCarrito").innerHTML = ""
+    console.log(productosEnElCarrito);
     let indicadorDeProductos = productosEnElCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
 
     if (document.querySelector("#idBotonCarrito").classList.contains("botonesIndexCarritoLleno")) {
