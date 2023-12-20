@@ -37,6 +37,9 @@ if (localStorage.getItem("productosEnElCarro") != "") {
 /* Arrays */
 let productosEnElCarrito = []
 productosEnElCarrito = prudctosDelCarrito;
+if (productosEnElCarrito==null) {
+    productosEnElCarrito = []
+}
 
 /* ------------------------------------ */
 /* Funciones */
@@ -194,47 +197,6 @@ function cargarProductosDefault() {
     agregarAlCarrito();
 }
 
-function actualizarLogoCarrito() {
-    document.querySelector("#idBotonCarrito").innerHTML = ""
-    console.log(productosEnElCarrito);
-    let indicadorDeProductos = productosEnElCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
-
-    if (document.querySelector("#idBotonCarrito").classList.contains("botonesIndexCarritoLleno")) {
-        document.querySelector("#idBotonCarrito").classList.remove("botonesIndexCarritoLleno")
-    }
-
-    if (productosEnElCarrito.length == 0) {
-        document.querySelector("#idBotonCarrito").innerHTML = `
-            Tu carrito
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                    class="bi bi-cart4 botonesIndexLogo" viewBox="0 0 16 16">
-                    <path
-                        d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
-            </svg>
-            `
-    } else {
-        document.querySelector("#idBotonCarrito").classList.add("botonesIndexCarritoLleno")
-
-        if (indicadorDeProductos >= 99) {
-            document.querySelector("#idBotonCarrito").innerHTML = `
-                Tu carrito
-                <div class="botonesIndexLogo">
-                +99
-                </div>
-                `
-        } else {
-            document.querySelector("#idBotonCarrito").innerHTML = `
-            Tu carrito
-            <div class="botonesIndexLogo">
-            ${indicadorDeProductos}
-            </div>
-            `
-        }
-    }
-
-    localStorage.setItem("indexProductosEnElCarrito", indicadorDeProductos)
-}
-
 function cargarProductoDeInput(arrayDelInput) {
     document.querySelector("#contendorCargarProductoDefault").innerHTML = "";
 
@@ -299,6 +261,46 @@ function buscarProductoPorInput() {
             })
         })
         .catch(error => console.error('Error al cargar productos:', error));
+}
+
+function actualizarLogoCarrito() {
+    document.querySelector("#idBotonCarrito").innerHTML = ""
+    let indicadorDeProductos = productosEnElCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+
+    if (document.querySelector("#idBotonCarrito").classList.contains("botonesIndexCarritoLleno")) {
+        document.querySelector("#idBotonCarrito").classList.remove("botonesIndexCarritoLleno")
+    }
+
+    if (productosEnElCarrito.length == 0) {
+        document.querySelector("#idBotonCarrito").innerHTML = `
+            Tu carrito
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-cart4 botonesIndexLogo" viewBox="0 0 16 16">
+                    <path
+                        d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+            </svg>
+            `
+    } else {
+        document.querySelector("#idBotonCarrito").classList.add("botonesIndexCarritoLleno")
+
+        if (indicadorDeProductos >= 99) {
+            document.querySelector("#idBotonCarrito").innerHTML = `
+                Tu carrito
+                <div class="botonesIndexLogo">
+                +99
+                </div>
+                `
+        } else {
+            document.querySelector("#idBotonCarrito").innerHTML = `
+            Tu carrito
+            <div class="botonesIndexLogo">
+            ${indicadorDeProductos}
+            </div>
+            `
+        }
+    }
+
+    localStorage.setItem("indexProductosEnElCarrito", indicadorDeProductos)
 }
 
 /* ------------------------------------ */
