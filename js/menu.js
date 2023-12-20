@@ -56,90 +56,53 @@ function evaluarSiEstanClickeadosEnBarNav(tituloNavBar) {
     }
 }
 
-function cargarProductos(ruta, catergoriaDelProducto, idDelContenedor) {
-    return new Promise((resolve, reject) => {
-        fetch(ruta)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error de json ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                resolve(data);
-            })
-            .catch(error => {
-                reject(error);
+function cargarProductos(contendor, seccionProducto) {
+
+    let url = '../js/productos.json';
+
+    fetch(url)
+        .then(response => response.json())
+        .then(todosLosProductos => {
+            document.querySelector(contendor).innerHTML = "";
+
+            let productosFiltrados = todosLosProductos.filter(function (producto) {
+                return producto.categoria.nombre === seccionProducto;
             });
-    });
-}
 
-function cargarProductosDefault(ruta) {
-    return new Promise((resolve, reject) => {
-        fetch(ruta)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error de json ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                resolve(data);
-            })
-            .catch(error => {
-                reject(error);
-            });
-    });
-}
-
-function buscarProductoPorInput(ruta) {
-    return new Promise((resolve, reject) => {
-        fetch(ruta)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error de json ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                resolve(data);
-            })
-            .catch(error => {
-                reject(error);
-            });
-    });
-}
-
-function cargarProductoDeInput(arrayDelInput) {
-    document.querySelector("#contendorCargarProductoDefault").innerHTML = "";
-
-    arrayDelInput.forEach((producto) => {
-        div1 = document.createElement("div");
-        div1.classList.add("col")
-        div1.classList.add("productosContenedorSub3")
-        div1.innerHTML = ` 
-        <div class="card shadow-sm productosContenedorSub4">
+            productosFiltrados.forEach((producto) => {
+                div1 = document.createElement("div");
+                div1.classList.add("col")
+                div1.classList.add("productosContenedorSub3")
+                div1.innerHTML = ` 
+                <div class="card shadow-sm productosContenedorSub4">
                 <img src="${producto.ilustracion}" alt="${producto.nombre}"
-        class="productosContenedorSub4Imagen">
-        <div class="card-body productosContenedorDescripcion">
-            <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-        <div
-            class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-        <button type="button"
-            class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-            al carrito</button>
-        <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-        <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-            </div>
-         </div>
-        </div>
-            
+                class="productosContenedorSub4Imagen">
+                <div class="card-body productosContenedorDescripcion">
+                <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
+                <div
+                class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
+                <button type="button"
+                class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
+                al carrito</button>
+                <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
+                <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
+                </div>
+                </div>
+                </div>       
             `;
-        document.querySelector("#contendorCargarProductoDefault").append(div1);
-    })
+                document.querySelector(contendor).append(div1);
+            })
+        })
+        .catch(error => console.error('Error al cargar los productos:', error));
 
-    /* agregar al carrito*/
-    agregarAlCarrito('../js/productos.json')
+    agregarAlCarrito()
+}
+
+function agregarAlCarrito() {
+    let url = '../js/productos.json';
+
+    fetch(url)
+        .then(response => response.json())
         .then(todosLosProductos => {
             let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
 
@@ -175,9 +138,60 @@ function cargarProductoDeInput(arrayDelInput) {
                 })
             });
         })
-        .catch(error => {
-            console.error('Error al cargar datos:', error);
-        });
+        .catch(error => console.error('Error al agregar al carrito:', error));
+}
+
+function cargarProductosDefault() {
+    let url = '../js/productos.json';
+
+    fetch(url)
+        .then(response => response.json())
+        .then(todosLosProductos => {
+            document.querySelector("#seccionDefault").classList.remove("d-none")
+            document.querySelector("#contendorCargarProductoDefault").innerHTML = "";
+
+            todosLosProductos.forEach((producto) => {
+                div1 = document.createElement("div");
+                div1.classList.add("col")
+                div1.classList.add("productosContenedorSub3")
+                div1.innerHTML = ` 
+                <div class="card shadow-sm productosContenedorSub4">
+                        <img src="${producto.ilustracion}" alt="${producto.nombre}"
+                class="productosContenedorSub4Imagen">
+                <div class="card-body productosContenedorDescripcion">
+                    <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
+                <div
+                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
+                <button type="button"
+                    class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
+                    al carrito</button>
+                    <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
+                    <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
+                    </div>
+                 </div>
+                </div>
+                    
+                    `;
+                document.querySelector("#contendorCargarProductoDefault").append(div1);
+            })
+
+            document.querySelector("#seccionHamburguesas").classList.add("d-none")
+            document.querySelector("#seccionHamburguesasDePollo").classList.add("d-none")
+            document.querySelector("#seccionPapasYComplementos").classList.add("d-none")
+            document.querySelector("#seccionBebidas").classList.add("d-none")
+            document.querySelector("#seccionPostres").classList.add("d-none")
+            document.querySelector("#seccionEnsaladas").classList.add("d-none")
+
+            evaluarSiEstanClickeadosEnBarNav("#hamburguesaNombreLista")
+            evaluarSiEstanClickeadosEnBarNav("#hamburguesaPolloNombreLista")
+            evaluarSiEstanClickeadosEnBarNav("#papasYComNombreLista")
+            evaluarSiEstanClickeadosEnBarNav("#bebidaNombreLista")
+            evaluarSiEstanClickeadosEnBarNav("#postresNombreLista")
+            evaluarSiEstanClickeadosEnBarNav("#ensaladaNombreLista")
+        })
+        .catch(error => console.error('Error al cargar productos por default:', error));
+
+    agregarAlCarrito();
 }
 
 function actualizarLogoCarrito() {
@@ -221,24 +235,71 @@ function actualizarLogoCarrito() {
     localStorage.setItem("indexProductosEnElCarrito", indicadorDeProductos)
 }
 
-function agregarAlCarrito(ruta) {
-    return new Promise((resolve, reject) => {
-        fetch(ruta)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error de json ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                resolve(data);
-            })
-            .catch(error => {
-                reject(error);
-            });
-    });
+function cargarProductoDeInput(arrayDelInput) {
+    document.querySelector("#contendorCargarProductoDefault").innerHTML = "";
+
+    arrayDelInput.forEach((producto) => {
+        div1 = document.createElement("div");
+        div1.classList.add("col")
+        div1.classList.add("productosContenedorSub3")
+        div1.innerHTML = ` 
+        <div class="card shadow-sm productosContenedorSub4">
+                <img src="${producto.ilustracion}" alt="${producto.nombre}"
+        class="productosContenedorSub4Imagen">
+        <div class="card-body productosContenedorDescripcion">
+            <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
+        <div
+            class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
+        <button type="button"
+            class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
+            al carrito</button>
+        <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
+        <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
+            </div>
+         </div>
+        </div>
+            
+            `;
+        document.querySelector("#contendorCargarProductoDefault").append(div1);
+    })
+    agregarAlCarrito();
 }
 
+function buscarProductoPorInput() {
+    let url = '../js/productos.json';
+
+    fetch(url)
+        .then(response => response.json())
+        .then(todosLosProductos => {
+            let nombreDelProductoABuscar = "";
+            let objetosEncontrados = [];
+            document.querySelector("#idBuscadorNav").addEventListener("input", (e) => {
+                nombreDelProductoABuscar = e.target.value;
+
+                objetosEncontrados = todosLosProductos.filter(producto => {
+                    const primerasLetrasProducto = producto.nombre.substring(0, nombreDelProductoABuscar.length);
+                    return primerasLetrasProducto.toLowerCase() === nombreDelProductoABuscar.toLowerCase();
+                });
+
+                if (objetosEncontrados.length === 0) {
+                    cargarProductosDefault()
+                } else {
+                    cargarProductoDeInput(objetosEncontrados);
+                }
+            });
+
+            document.querySelector("#idBuscadorNav").addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                }
+            });
+
+            document.querySelector("#idInputClick").addEventListener("click", () => {
+                cargarProductosDefault()
+            })
+        })
+        .catch(error => console.error('Error al cargar productos:', error));
+}
 
 /* ------------------------------------ */
 /* Elegir Selector de tipo de comida */
@@ -246,84 +307,7 @@ document.querySelector("#botonHamburguesas").addEventListener("click", () => {
     document.querySelector("#seccionHamburguesas").classList.remove("d-none")
 
     /* cargar producuto*/
-    cargarProductos('../js/productos.json', "hamburguesa", "#contendorCargarProductoHamburgesas")
-        .then(todosLosProductos => {
-            document.querySelector("#contendorCargarProductoHamburgesas").innerHTML = "";
-
-            let productosFiltrados = todosLosProductos.filter(function (producto) {
-                return producto.categoria.nombre === "hamburguesa";
-            });
-
-            productosFiltrados.forEach((producto) => {
-                div1 = document.createElement("div");
-                div1.classList.add("col")
-                div1.classList.add("productosContenedorSub3")
-                div1.innerHTML = ` 
-                <div class="card shadow-sm productosContenedorSub4">
-                <img src="${producto.ilustracion}" alt="${producto.nombre}"
-                class="productosContenedorSub4Imagen">
-                <div class="card-body productosContenedorDescripcion">
-                <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-                <div
-                class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                <button type="button"
-                class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-                al carrito</button>
-                <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-                <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-                </div>
-                </div>
-                </div>       
-            `;
-                document.querySelector("#contendorCargarProductoHamburgesas").append(div1);
-            })
-
-            /* agregar al carrito */
-            agregarAlCarrito('../js/productos.json')
-                .then(todosLosProductos => {
-                    let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
-
-                    botonesAniadir.forEach(boton => {
-                        boton.addEventListener("click", (e) => {
-                            let productoEncontrado = todosLosProductos.find(producto => producto.id == e.target.id)
-
-                            /*  AGREGAR PRODUCTO AL CARRITO */
-                            if (productosEnElCarrito.some(producto => producto.id == productoEncontrado.id)) {
-                                let index = productosEnElCarrito.findIndex(producto => producto.id == productoEncontrado.id)
-                                productosEnElCarrito[index].cantidad++;
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto sumado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                })
-                            } else {
-                                productoEncontrado.cantidad = 1;
-                                productosEnElCarrito.push(productoEncontrado)
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto agregado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                });
-                            }
-
-                            actualizarLogoCarrito()
-                            localStorage.setItem("productosEnElCarro", JSON.stringify(productosEnElCarrito))
-                        })
-                    });
-                })
-                .catch(error => {
-                    console.error('Error al cargar datos:', error);
-                });
-
-
-        })
-        .catch(error => {
-            console.error('Error al cargar datos:', error);
-        });
+    cargarProductos("#contendorCargarProductoHamburgesas", "hamburguesa")
 
     document.querySelector("#hamburguesaNombreLista").classList.add("navClickeado")
 
@@ -344,85 +328,8 @@ document.querySelector("#botonHamburguesas").addEventListener("click", () => {
 document.querySelector("#botonHamburguesasDePollo").addEventListener("click", () => {
     document.querySelector("#seccionHamburguesasDePollo").classList.remove("d-none")
 
-    cargarProductos('../js/productos.json', "hamburguesa-de-pollo", "#contendorCargarProductoHamburgesasDePollo")
-        .then(todosLosProductos => {
-            document.querySelector("#contendorCargarProductoHamburgesasDePollo").innerHTML = "";
-
-            let productosFiltrados = todosLosProductos.filter(function (producto) {
-                return producto.categoria.nombre === "hamburguesa-de-pollo";
-            });
-
-            productosFiltrados.forEach((producto) => {
-                div1 = document.createElement("div");
-                div1.classList.add("col")
-                div1.classList.add("productosContenedorSub3")
-                div1.innerHTML = ` 
-                <div class="card shadow-sm productosContenedorSub4">
-                <img src="${producto.ilustracion}" alt="${producto.nombre}"
-                class="productosContenedorSub4Imagen">
-                <div class="card-body productosContenedorDescripcion">
-                <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-                <div
-                class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                <button type="button"
-                class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-                al carrito</button>
-                <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-                <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-                </div>
-                </div>
-                </div>
-            
-            `;
-                document.querySelector("#contendorCargarProductoHamburgesasDePollo").append(div1);
-            })
-
-            /* agregar al carrito */
-            agregarAlCarrito('../js/productos.json')
-                .then(todosLosProductos => {
-                    let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
-
-                    botonesAniadir.forEach(boton => {
-                        boton.addEventListener("click", (e) => {
-                            let productoEncontrado = todosLosProductos.find(producto => producto.id == e.target.id)
-
-                            /*  AGREGAR PRODUCTO AL CARRITO */
-                            if (productosEnElCarrito.some(producto => producto.id == productoEncontrado.id)) {
-                                let index = productosEnElCarrito.findIndex(producto => producto.id == productoEncontrado.id)
-                                productosEnElCarrito[index].cantidad++;
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto sumado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                })
-                            } else {
-                                productoEncontrado.cantidad = 1;
-                                productosEnElCarrito.push(productoEncontrado)
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto agregado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                });
-                            }
-
-                            actualizarLogoCarrito()
-                            localStorage.setItem("productosEnElCarro", JSON.stringify(productosEnElCarrito))
-                        })
-                    });
-                })
-                .catch(error => {
-                    console.error('Error al cargar datos:', error);
-                });
-
-
-        })
-        .catch(error => {
-            console.error('Error al cargar datos:', error);
-        });
+    /* cargar producuto*/
+    cargarProductos("#contendorCargarProductoHamburgesasDePollo", "hamburguesa-de-pollo")
 
     document.querySelector("#hamburguesaPolloNombreLista").classList.add("navClickeado")
 
@@ -443,87 +350,8 @@ document.querySelector("#botonHamburguesasDePollo").addEventListener("click", ()
 document.querySelector("#botonPapasYComplementos").addEventListener("click", () => {
     document.querySelector("#seccionPapasYComplementos").classList.remove("d-none")
 
-    cargarProductos('../js/productos.json', "papas-y-complementos", "#contendorCargarProductoPapasYComplementos")
-        .then(todosLosProductos => {
-            document.querySelector("#contendorCargarProductoPapasYComplementos").innerHTML = "";
-
-            let productosFiltrados = todosLosProductos.filter(function (producto) {
-                return producto.categoria.nombre === "papas-y-complementos";
-            });
-
-            productosFiltrados.forEach((producto) => {
-                div1 = document.createElement("div");
-                div1.classList.add("col")
-                div1.classList.add("productosContenedorSub3")
-                div1.innerHTML = ` 
-            <div class="card shadow-sm productosContenedorSub4">
-                <img src="${producto.ilustracion}" alt="${producto.nombre}"
-            class="productosContenedorSub4Imagen">
-            <div class="card-body productosContenedorDescripcion">
-            <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-            <div
-            class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-            <button type="button"
-            class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-            al carrito</button>
-            <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-            <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-            </div>
-            </div>
-            </div>
-            
-            `;
-                document.querySelector("#contendorCargarProductoPapasYComplementos").append(div1);
-            })
-
-            /* agregar productos */
-            agregarAlCarrito('../js/productos.json')
-                .then(todosLosProductos => {
-                    let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
-
-                    botonesAniadir.forEach(boton => {
-                        boton.addEventListener("click", (e) => {
-                            let productoEncontrado = todosLosProductos.find(producto => producto.id == e.target.id)
-
-                            /*  AGREGAR PRODUCTO AL CARRITO */
-                            if (productosEnElCarrito.some(producto => producto.id == productoEncontrado.id)) {
-                                let index = productosEnElCarrito.findIndex(producto => producto.id == productoEncontrado.id)
-                                productosEnElCarrito[index].cantidad++;
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto sumado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                })
-                            } else {
-                                productoEncontrado.cantidad = 1;
-                                productosEnElCarrito.push(productoEncontrado)
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto agregado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                });
-                            }
-
-                            actualizarLogoCarrito()
-                            localStorage.setItem("productosEnElCarro", JSON.stringify(productosEnElCarrito))
-                        })
-                    });
-                })
-                .catch(error => {
-                    console.error('Error al cargar datos:', error);
-                });
-
-
-        })
-        .catch(error => {
-            console.error('Error al cargar datos:', error);
-        });
-
-
+    /* cargar producuto*/
+    cargarProductos("#contendorCargarProductoPapasYComplementos", "papas-y-complementos")
 
     document.querySelector("#papasYComNombreLista").classList.add("navClickeado")
 
@@ -544,87 +372,8 @@ document.querySelector("#botonPapasYComplementos").addEventListener("click", () 
 document.querySelector("#botonBebidas").addEventListener("click", () => {
     document.querySelector("#seccionBebidas").classList.remove("d-none")
 
-    cargarProductos('../js/productos.json', "bebidas", "#contendorCargarProductoBebidas")
-        .then(todosLosProductos => {
-            document.querySelector("#contendorCargarProductoBebidas").innerHTML = "";
-
-            let productosFiltrados = todosLosProductos.filter(function (producto) {
-                return producto.categoria.nombre === "bebidas";
-            });
-
-            productosFiltrados.forEach((producto) => {
-                div1 = document.createElement("div");
-                div1.classList.add("col")
-                div1.classList.add("productosContenedorSub3")
-                div1.innerHTML = ` 
-            <div class="card shadow-sm productosContenedorSub4">
-            <img src="${producto.ilustracion}" alt="${producto.nombre}"
-            class="productosContenedorSub4Imagen">
-            <div class="card-body productosContenedorDescripcion">
-            <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-            <div
-            class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-            <button type="button"
-            class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-            al carrito</button>
-            <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-            <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-            </div>
-            </div>
-            </div>
-        
-        `;
-                document.querySelector("#contendorCargarProductoBebidas").append(div1);
-            })
-
-            agregarAlCarrito('../js/productos.json')
-                .then(todosLosProductos => {
-                    let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
-
-                    botonesAniadir.forEach(boton => {
-                        boton.addEventListener("click", (e) => {
-                            let productoEncontrado = todosLosProductos.find(producto => producto.id == e.target.id)
-
-                            /*  AGREGAR PRODUCTO AL CARRITO */
-                            if (productosEnElCarrito.some(producto => producto.id == productoEncontrado.id)) {
-                                let index = productosEnElCarrito.findIndex(producto => producto.id == productoEncontrado.id)
-                                productosEnElCarrito[index].cantidad++;
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto sumado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                })
-                            } else {
-                                productoEncontrado.cantidad = 1;
-                                productosEnElCarrito.push(productoEncontrado)
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto agregado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                });
-                            }
-
-                            actualizarLogoCarrito()
-                            localStorage.setItem("productosEnElCarro", JSON.stringify(productosEnElCarrito))
-                        })
-                    });
-                })
-                .catch(error => {
-                    console.error('Error al cargar datos:', error);
-                });
-
-
-        })
-        .catch(error => {
-            console.error('Error al cargar datos:', error);
-        });
-
-
-
+    /* cargar producuto*/
+    cargarProductos("#contendorCargarProductoBebidas", "bebidas")
 
     document.querySelector("#bebidaNombreLista").classList.add("navClickeado")
 
@@ -645,84 +394,8 @@ document.querySelector("#botonBebidas").addEventListener("click", () => {
 document.querySelector("#botonPostres").addEventListener("click", () => {
     document.querySelector("#seccionPostres").classList.remove("d-none")
 
-    cargarProductos('../js/productos.json', "postres", "#contendorCargarProductoPostres")
-        .then(todosLosProductos => {
-            document.querySelector("#contendorCargarProductoPostres").innerHTML = "";
-
-            let productosFiltrados = todosLosProductos.filter(function (producto) {
-                return producto.categoria.nombre === "postres";
-            });
-
-            productosFiltrados.forEach((producto) => {
-                div1 = document.createElement("div");
-                div1.classList.add("col")
-                div1.classList.add("productosContenedorSub3")
-                div1.innerHTML = ` 
-                <div class="card shadow-sm productosContenedorSub4">
-                <img src="${producto.ilustracion}" alt="${producto.nombre}"
-                class="productosContenedorSub4Imagen">
-                <div class="card-body productosContenedorDescripcion">
-                <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-                <div
-                class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                <button type="button"
-                class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-                al carrito</button>
-                <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-                <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-                </div>
-                </div>
-                </div>
-    
-    `;
-                document.querySelector("#contendorCargarProductoPostres").append(div1);
-            })
-            /* agregar al carrito  */
-            agregarAlCarrito('../js/productos.json')
-                .then(todosLosProductos => {
-                    let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
-
-                    botonesAniadir.forEach(boton => {
-                        boton.addEventListener("click", (e) => {
-                            let productoEncontrado = todosLosProductos.find(producto => producto.id == e.target.id)
-
-                            /*  AGREGAR PRODUCTO AL CARRITO */
-                            if (productosEnElCarrito.some(producto => producto.id == productoEncontrado.id)) {
-                                let index = productosEnElCarrito.findIndex(producto => producto.id == productoEncontrado.id)
-                                productosEnElCarrito[index].cantidad++;
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto sumado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                })
-                            } else {
-                                productoEncontrado.cantidad = 1;
-                                productosEnElCarrito.push(productoEncontrado)
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto agregado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                });
-                            }
-
-                            actualizarLogoCarrito()
-                            localStorage.setItem("productosEnElCarro", JSON.stringify(productosEnElCarrito))
-                        })
-                    });
-                })
-                .catch(error => {
-                    console.error('Error al cargar datos:', error);
-                });
-
-
-        })
-        .catch(error => {
-            console.error('Error al cargar datos:', error);
-        });
+    /* cargar producuto*/
+    cargarProductos("#contendorCargarProductoPostres", "postres")
 
     document.querySelector("#postresNombreLista").classList.add("navClickeado")
 
@@ -743,86 +416,8 @@ document.querySelector("#botonPostres").addEventListener("click", () => {
 document.querySelector("#botonEnsaladas").addEventListener("click", () => {
     document.querySelector("#seccionEnsaladas").classList.remove("d-none")
 
-    cargarProductos('../js/productos.json', "ensalada", "#contendorCargarProductoEnsaladas")
-        .then(todosLosProductos => {
-            document.querySelector("#contendorCargarProductoEnsaladas").innerHTML = "";
-
-            let productosFiltrados = todosLosProductos.filter(function (producto) {
-                return producto.categoria.nombre === "ensalada";
-            });
-
-            productosFiltrados.forEach((producto) => {
-                div1 = document.createElement("div");
-                div1.classList.add("col")
-                div1.classList.add("productosContenedorSub3")
-                div1.innerHTML = ` 
-                <div class="card shadow-sm productosContenedorSub4">
-                <img src="${producto.ilustracion}" alt="${producto.nombre}"
-                class="productosContenedorSub4Imagen">
-                <div class="card-body productosContenedorDescripcion">
-                <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-                <div
-                class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                <button type="button"
-                class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-                al carrito</button>
-                <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-                <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-                </div>
-                </div>
-                </div>
-    
-    `;
-                document.querySelector("#contendorCargarProductoEnsaladas").append(div1);
-            })
-
-            /* agregar al carrito  */
-            agregarAlCarrito('../js/productos.json')
-                .then(todosLosProductos => {
-                    let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
-
-                    botonesAniadir.forEach(boton => {
-                        boton.addEventListener("click", (e) => {
-                            let productoEncontrado = todosLosProductos.find(producto => producto.id == e.target.id)
-
-                            /*  AGREGAR PRODUCTO AL CARRITO */
-                            if (productosEnElCarrito.some(producto => producto.id == productoEncontrado.id)) {
-                                let index = productosEnElCarrito.findIndex(producto => producto.id == productoEncontrado.id)
-                                productosEnElCarrito[index].cantidad++;
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto sumado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                })
-                            } else {
-                                productoEncontrado.cantidad = 1;
-                                productosEnElCarrito.push(productoEncontrado)
-
-                                Swal.fire({
-                                    position: "top-end",
-                                    title: "¡Producto agregado!",
-                                    showConfirmButton: false,
-                                    timer: 500
-                                });
-                            }
-
-                            actualizarLogoCarrito()
-                            localStorage.setItem("productosEnElCarro", JSON.stringify(productosEnElCarrito))
-                        })
-                    });
-                })
-                .catch(error => {
-                    console.error('Error al cargar datos:', error);
-                });
-
-
-        })
-        .catch(error => {
-            console.error('Error al cargar datos:', error);
-        });
-
+    /* cargar producuto */
+    cargarProductos("#contendorCargarProductoEnsaladas", "ensalada")
 
     document.querySelector("#ensaladaNombreLista").classList.add("navClickeado")
 
@@ -885,307 +480,8 @@ document.querySelector("#idBotonCambiarPrecio").addEventListener("click", () => 
 })
 
 /* ------------------------------------ */
-cargarProductosDefault('../js/productos.json')
-    .then(todosLosProductos => {
-        document.querySelector("#seccionDefault").classList.remove("d-none")
-        document.querySelector("#contendorCargarProductoDefault").innerHTML = "";
-
-        todosLosProductos.forEach((producto) => {
-            div1 = document.createElement("div");
-            div1.classList.add("col")
-            div1.classList.add("productosContenedorSub3")
-            div1.innerHTML = ` 
-                <div class="card shadow-sm productosContenedorSub4">
-                        <img src="${producto.ilustracion}" alt="${producto.nombre}"
-                class="productosContenedorSub4Imagen">
-                <div class="card-body productosContenedorDescripcion">
-                    <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-                <div
-                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                <button type="button"
-                    class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-                    al carrito</button>
-                    <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-                    <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-                    </div>
-                 </div>
-                </div>
-                    
-                    `;
-            document.querySelector("#contendorCargarProductoDefault").append(div1);
-        })
-
-        document.querySelector("#seccionHamburguesas").classList.add("d-none")
-        document.querySelector("#seccionHamburguesasDePollo").classList.add("d-none")
-        document.querySelector("#seccionPapasYComplementos").classList.add("d-none")
-        document.querySelector("#seccionBebidas").classList.add("d-none")
-        document.querySelector("#seccionPostres").classList.add("d-none")
-        document.querySelector("#seccionEnsaladas").classList.add("d-none")
-
-        evaluarSiEstanClickeadosEnBarNav("#hamburguesaNombreLista")
-        evaluarSiEstanClickeadosEnBarNav("#hamburguesaPolloNombreLista")
-        evaluarSiEstanClickeadosEnBarNav("#papasYComNombreLista")
-        evaluarSiEstanClickeadosEnBarNav("#bebidaNombreLista")
-        evaluarSiEstanClickeadosEnBarNav("#postresNombreLista")
-        evaluarSiEstanClickeadosEnBarNav("#ensaladaNombreLista")
-
-        agregarAlCarrito('../js/productos.json')
-            .then(todosLosProductos => {
-                let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
-
-                botonesAniadir.forEach(boton => {
-                    boton.addEventListener("click", (e) => {
-                        let productoEncontrado = todosLosProductos.find(producto => producto.id == e.target.id)
-
-                        /*  AGREGAR PRODUCTO AL CARRITO */
-                        if (productosEnElCarrito.some(producto => producto.id == productoEncontrado.id)) {
-                            let index = productosEnElCarrito.findIndex(producto => producto.id == productoEncontrado.id)
-                            productosEnElCarrito[index].cantidad++;
-
-                            Swal.fire({
-                                position: "top-end",
-                                title: "¡Producto sumado!",
-                                showConfirmButton: false,
-                                timer: 500
-                            })
-                        } else {
-                            productoEncontrado.cantidad = 1;
-                            productosEnElCarrito.push(productoEncontrado)
-
-                            Swal.fire({
-                                position: "top-end",
-                                title: "¡Producto agregado!",
-                                showConfirmButton: false,
-                                timer: 500
-                            });
-                        }
-
-                        actualizarLogoCarrito()
-                        localStorage.setItem("productosEnElCarro", JSON.stringify(productosEnElCarrito))
-                    })
-                });
-            })
-            .catch(error => {
-                console.error('Error al cargar datos:', error);
-            });
-
-
-    })
-    .catch(error => {
-        console.error('Error al cargar datos:', error);
-    });
-
-
-buscarProductoPorInput('../js/productos.json')
-    .then(todosLosProductos => {
-        let nombreDelProductoABuscar = "";
-        let objetosEncontrados = [];
-        document.querySelector("#idBuscadorNav").addEventListener("input", (e) => {
-            nombreDelProductoABuscar = e.target.value;
-
-            objetosEncontrados = todosLosProductos.filter(producto => {
-                const primerasLetrasProducto = producto.nombre.substring(0, nombreDelProductoABuscar.length);
-                return primerasLetrasProducto.toLowerCase() === nombreDelProductoABuscar.toLowerCase();
-            });
-
-            if (objetosEncontrados.length === 0) {
-                cargarProductosDefault('../js/productos.json')
-                    .then(todosLosProductos => {
-                        document.querySelector("#seccionDefault").classList.remove("d-none")
-                        document.querySelector("#contendorCargarProductoDefault").innerHTML = "";
-
-                        todosLosProductos.forEach((producto) => {
-                            div1 = document.createElement("div");
-                            div1.classList.add("col")
-                            div1.classList.add("productosContenedorSub3")
-                            div1.innerHTML = ` 
-                <div class="card shadow-sm productosContenedorSub4">
-                        <img src="${producto.ilustracion}" alt="${producto.nombre}"
-                class="productosContenedorSub4Imagen">
-                <div class="card-body productosContenedorDescripcion">
-                    <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-                <div
-                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                <button type="button"
-                    class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-                    al carrito</button>
-                    <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-                    <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-                    </div>
-                 </div>
-                </div>
-                    
-                    `;
-                            document.querySelector("#contendorCargarProductoDefault").append(div1);
-                        })
-
-                        document.querySelector("#seccionHamburguesas").classList.add("d-none")
-                        document.querySelector("#seccionHamburguesasDePollo").classList.add("d-none")
-                        document.querySelector("#seccionPapasYComplementos").classList.add("d-none")
-                        document.querySelector("#seccionBebidas").classList.add("d-none")
-                        document.querySelector("#seccionPostres").classList.add("d-none")
-                        document.querySelector("#seccionEnsaladas").classList.add("d-none")
-
-                        evaluarSiEstanClickeadosEnBarNav("#hamburguesaNombreLista")
-                        evaluarSiEstanClickeadosEnBarNav("#hamburguesaPolloNombreLista")
-                        evaluarSiEstanClickeadosEnBarNav("#papasYComNombreLista")
-                        evaluarSiEstanClickeadosEnBarNav("#bebidaNombreLista")
-                        evaluarSiEstanClickeadosEnBarNav("#postresNombreLista")
-                        evaluarSiEstanClickeadosEnBarNav("#ensaladaNombreLista")
-
-                        agregarAlCarrito('../js/productos.json')
-                            .then(todosLosProductos => {
-                                let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
-
-                                botonesAniadir.forEach(boton => {
-                                    boton.addEventListener("click", (e) => {
-                                        let productoEncontrado = todosLosProductos.find(producto => producto.id == e.target.id)
-
-                                        /*  AGREGAR PRODUCTO AL CARRITO */
-                                        if (productosEnElCarrito.some(producto => producto.id == productoEncontrado.id)) {
-                                            let index = productosEnElCarrito.findIndex(producto => producto.id == productoEncontrado.id)
-                                            productosEnElCarrito[index].cantidad++;
-
-                                            Swal.fire({
-                                                position: "top-end",
-                                                title: "¡Producto sumado!",
-                                                showConfirmButton: false,
-                                                timer: 500
-                                            })
-                                        } else {
-                                            productoEncontrado.cantidad = 1;
-                                            productosEnElCarrito.push(productoEncontrado)
-
-                                            Swal.fire({
-                                                position: "top-end",
-                                                title: "¡Producto agregado!",
-                                                showConfirmButton: false,
-                                                timer: 500
-                                            });
-                                        }
-
-                                        actualizarLogoCarrito()
-                                        localStorage.setItem("productosEnElCarro", JSON.stringify(productosEnElCarrito))
-                                    })
-                                });
-                            })
-                            .catch(error => {
-                                console.error('Error al cargar datos:', error);
-                            });
-
-
-                    })
-                    .catch(error => {
-                        console.error('Error al cargar datos:', error);
-                    });
-            } else {
-                cargarProductoDeInput(objetosEncontrados);
-            }
-        });
-
-        document.querySelector("#idBuscadorNav").addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
-                e.preventDefault();
-            }
-        });
-
-        document.querySelector("#idInputClick").addEventListener("click", () => {
-            cargarProductosDefault('../js/productos.json')
-                .then(todosLosProductos => {
-                    document.querySelector("#seccionDefault").classList.remove("d-none")
-                    document.querySelector("#contendorCargarProductoDefault").innerHTML = "";
-
-                    todosLosProductos.forEach((producto) => {
-                        div1 = document.createElement("div");
-                        div1.classList.add("col")
-                        div1.classList.add("productosContenedorSub3")
-                        div1.innerHTML = ` 
-                <div class="card shadow-sm productosContenedorSub4">
-                        <img src="${producto.ilustracion}" alt="${producto.nombre}"
-                class="productosContenedorSub4Imagen">
-                <div class="card-body productosContenedorDescripcion">
-                    <h5 class="productosContenedorNombreProducto">${producto.nombre}</h5>
-                <div
-                    class="d-flex justify-content-between align-items-center  productosContenedorDescripcionBotones">
-                <button type="button"
-                    class="btn btn-sm btn-outline-secondary productosContenedorDescripcionBotonesAniadirAlCarrito" id="${producto.id}">Añadir
-                    al carrito</button>
-                    <small class="productosContenedorDescripcionPrecio precioDolar">$${producto.precioDolar}.</small>
-                    <small class="productosContenedorDescripcionPrecio precioPeso d-none">${producto.precioPesos}args.</small>
-                    </div>
-                 </div>
-                </div>
-                    
-                    `;
-                        document.querySelector("#contendorCargarProductoDefault").append(div1);
-                    })
-
-                    document.querySelector("#seccionHamburguesas").classList.add("d-none")
-                    document.querySelector("#seccionHamburguesasDePollo").classList.add("d-none")
-                    document.querySelector("#seccionPapasYComplementos").classList.add("d-none")
-                    document.querySelector("#seccionBebidas").classList.add("d-none")
-                    document.querySelector("#seccionPostres").classList.add("d-none")
-                    document.querySelector("#seccionEnsaladas").classList.add("d-none")
-
-                    evaluarSiEstanClickeadosEnBarNav("#hamburguesaNombreLista")
-                    evaluarSiEstanClickeadosEnBarNav("#hamburguesaPolloNombreLista")
-                    evaluarSiEstanClickeadosEnBarNav("#papasYComNombreLista")
-                    evaluarSiEstanClickeadosEnBarNav("#bebidaNombreLista")
-                    evaluarSiEstanClickeadosEnBarNav("#postresNombreLista")
-                    evaluarSiEstanClickeadosEnBarNav("#ensaladaNombreLista")
-
-                    agregarAlCarrito('../js/productos.json')
-                        .then(todosLosProductos => {
-                            let botonesAniadir = document.querySelectorAll(".productosContenedorDescripcionBotonesAniadirAlCarrito")
-
-                            botonesAniadir.forEach(boton => {
-                                boton.addEventListener("click", (e) => {
-                                    let productoEncontrado = todosLosProductos.find(producto => producto.id == e.target.id)
-
-                                    /*  AGREGAR PRODUCTO AL CARRITO */
-                                    if (productosEnElCarrito.some(producto => producto.id == productoEncontrado.id)) {
-                                        let index = productosEnElCarrito.findIndex(producto => producto.id == productoEncontrado.id)
-                                        productosEnElCarrito[index].cantidad++;
-
-                                        Swal.fire({
-                                            position: "top-end",
-                                            title: "¡Producto sumado!",
-                                            showConfirmButton: false,
-                                            timer: 500
-                                        })
-                                    } else {
-                                        productoEncontrado.cantidad = 1;
-                                        productosEnElCarrito.push(productoEncontrado)
-
-                                        Swal.fire({
-                                            position: "top-end",
-                                            title: "¡Producto agregado!",
-                                            showConfirmButton: false,
-                                            timer: 500
-                                        });
-                                    }
-
-                                    actualizarLogoCarrito()
-                                    localStorage.setItem("productosEnElCarro", JSON.stringify(productosEnElCarrito))
-                                })
-                            });
-                        })
-                        .catch(error => {
-                            console.error('Error al cargar datos:', error);
-                        });
-
-
-                })
-                .catch(error => {
-                    console.error('Error al cargar datos:', error);
-                });
-        })
-
-    })
-    .catch(error => {
-        console.error('Error al cargar datos:', error);
-    });
-
+cargarProductosDefault()
+buscarProductoPorInput()
 actualizarLogoCarrito()
 
 
