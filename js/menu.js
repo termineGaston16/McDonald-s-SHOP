@@ -12,7 +12,7 @@ if (localStorage.getItem("modoOscuro") == "true") {
 /* ------ */
 
 /* Cambiar Precio*/
-document.addEventListener("DOMContentLoaded", function () {
+window.onload = function() {
     if (localStorage.getItem("precioDolarActivado") == "false") {
         document.querySelectorAll(".precioDolar").forEach((producto) => {
             producto.classList.add("d-none");
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             producto.classList.remove("d-none");
         });
     }
-});
+}
 
 
 /* ------ */
@@ -466,7 +466,6 @@ document.querySelector("#idBotonCarrito").addEventListener("click", () => {
 
 /* Cambiar Precio */
 document.querySelector("#idBotonCambiarPrecio").addEventListener("click", () => {
-
     document.querySelectorAll(".precioDolar").forEach((producto) => {
         producto.classList.toggle("d-none")
     })
@@ -476,7 +475,7 @@ document.querySelector("#idBotonCambiarPrecio").addEventListener("click", () => 
 
     if (document.querySelector(".precioDolar").classList.contains("d-none")) {
         localStorage.setItem("precioDolarActivado", false)
-    } else {
+    } else { 
         localStorage.setItem("precioDolarActivado", true)
     }
 })

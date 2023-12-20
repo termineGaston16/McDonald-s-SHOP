@@ -195,43 +195,50 @@ document.querySelector("#idBotonCarritoPagar").addEventListener("click", () => {
     let datosPersonales = {};
     localStorage.setItem("datosDelComprador", "")
 
-    Swal.fire({
-        title: "Introduce tus datos personales:",
-        html:
-            '<input id="nombreIntroducido" class="swal2-input" placeholder="Nombre" autocapitalize="off">' +
-            '<input id="apelleidoIntroducido" class="swal2-input" placeholder="Apellido" autocapitalize="off">' +
-            '<input id="dniIntroducido" class="swal2-input" placeholder="DNI" autocapitalize="off">',
-        showCancelButton: true,
-        confirmButtonText: "Aceptar",
-        cancelButtonText: "Rechazar",
-        showLoaderOnConfirm: true,
-        preConfirm: () => {
-            let nombre = document.getElementById('nombreIntroducido').value;
-            let apellido = document.getElementById('apelleidoIntroducido').value;
-            let dni = document.getElementById('dniIntroducido').value;
-
-            if (!nombre || !apellido || !dni) {
-                Swal.showValidationMessage("Todos los campos son obligatorios");
-            } else {
-                datosPersonales = { nombre, apellido, dni };
+    if (localStorage.getItem("indexProductosEnElCarrito")==0) {
+        Swal.fire({
+            text: "No hay productos en el carrito",
+            confirmButtonText: "Confirmar",
+        })
+    }else{
+        Swal.fire({
+            title: "Introduce tus datos personales:",
+            html:
+                '<input id="nombreIntroducido" class="swal2-input" placeholder="Nombre" autocapitalize="off">' +
+                '<input id="apelleidoIntroducido" class="swal2-input" placeholder="Apellido" autocapitalize="off">' +
+                '<input id="dniIntroducido" class="swal2-input" placeholder="DNI" autocapitalize="off">',
+            showCancelButton: true,
+            confirmButtonText: "Aceptar",
+            cancelButtonText: "Rechazar",
+            showLoaderOnConfirm: true,
+            preConfirm: () => {
+                let nombre = document.getElementById('nombreIntroducido').value;
+                let apellido = document.getElementById('apelleidoIntroducido').value;
+                let dni = document.getElementById('dniIntroducido').value;
+    
+                if (!nombre || !apellido || !dni) {
+                    Swal.showValidationMessage("Todos los campos son obligatorios");
+                } else {
+                    datosPersonales = { nombre, apellido, dni };
+                }
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.setItem("datosDelComprador", JSON.stringify(datosPersonales))
+                window.open('../index/comprobanteDeCompra.html', '_blank');
+    
+                setTimeout(function () {
+                    productosAlmacenados.splice(0, productosAlmacenados.length);
+                    localStorage.setItem("indexProductosEnElCarrito", 0);
+                    localStorage.setItem("productosEnElCarro", "");
+                    cargarProductosTraidosDelCarrito();
+                    actualizarTituleCarrito();
+                    location.reload();
+                }, 1500);
+    
             }
-        },
-    }).then((result) => {
-        if (result.isConfirmed) {
-            localStorage.setItem("datosDelComprador", JSON.stringify(datosPersonales))
-            window.open('../index/comprobanteDeCompra.html', '_blank');
-
-            setTimeout(function () {
-                productosAlmacenados.splice(0, productosAlmacenados.length);
-                localStorage.setItem("indexProductosEnElCarrito", 0);
-                localStorage.setItem("productosEnElCarro", "");
-                cargarProductosTraidosDelCarrito();
-                actualizarTituleCarrito();
-                location.reload();
-            }, 1500);
-
-        }
-    });
+        });
+    }
 });
 
 
